@@ -1,36 +1,18 @@
 import numpy as np
 import torch
-from utils.utils import score_cal,rmse_cal
+from muda.utils.utils import score_cal,rmse_cal
 import math
 from torch.autograd import Variable
-import utils.utils as utils
+import muda.utils.utils as utils
 import pandas as pd
 pd.set_option('mode.chained_assignment', None)
 from options import Options
 opt = Options().parse()
+cuda = opt.cuda
 
-def train(model,max_len,source1_loader,source2_loader,source3_loader,target_train_loader):
+def train(model,max_len,source1_loader,source2_loader,source3_loader,target_train_loader,f_mfsan_train):
     global mmd_loss1,mmd_loss2,mmd_loss3 #全局
     print("--------------------------MFSAN --------------------------------")
-
-    # f_mfsan_train = log_in_file("/mfsan_train_log.log")
-
-    # source1_loader = data_loader.load_training(source_path[source_chosen[1]], sequence_length, sensor_drop,
-    #                                             batch_size)
-    # source2_loader = data_loader.load_training(source_path[source_chosen[2]], sequence_length, sensor_drop,
-    #                                             batch_size)
-    # source3_loader = data_loader.load_training(source_path[source_chosen[3]], sequence_length, sensor_drop,
-    #                                            batch_size)
-
-    # source1_len = len(source1_loader)
-    # source2_len = len(source2_loader)
-    # source3_len = len(source3_loader)
-    #
-    # target_len = len(target_train_loader)
-    # min_len = min(source1_len,source2_len,source3_len,target_len)
-    # max_len = max(source1_len,source2_len,source3_len,target_len)
-    # max_len = max(source1_len,source2_len,target_len)
-    # print("111111",source1_len,source2_len,target_len,max_len)
 
     batch_src1,batch_src2,batch_src3,batch_tar = 0,0,0,0
     running_loss_scr1, running_loss_scr2 ,running_loss_scr3= 0, 0, 0
@@ -181,7 +163,7 @@ def train(model,max_len,source1_loader,source2_loader,source3_loader,target_trai
     return epoch_loss_scr1, epoch_loss_scr2, epoch_loss_scr3, epoch_mmd_loss_scr1, epoch_mmd_loss_scr2, epoch_mmd_loss_scr3, epoch_l1_loss_scr1, epoch_l1_loss_scr2, epoch_l1_loss_scr3
 
 
-def test(model,target_test_loader):
+def test(model,target_test_loader,f_mfsan_test):
 
     model.eval()
 

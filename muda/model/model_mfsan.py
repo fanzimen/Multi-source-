@@ -1,11 +1,11 @@
 import torch.nn as nn
 import math
 import torch.utils.model_zoo as model_zoo
-from utils.utils import mmd, coral
+from muda.utils.utils import mmd, coral
 import torch.nn.functional as F
 import torch
-from utils.utils import ReverseLayerF
-import utils.utils as utils
+from muda.utils.utils import ReverseLayerF
+import muda.utils.utils as utils
 
 class Discriminator(nn.Module):
     def __init__(self):

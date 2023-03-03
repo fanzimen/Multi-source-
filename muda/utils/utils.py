@@ -4,10 +4,34 @@ from torch.autograd import Function
 from sklearn.manifold import TSNE
 import torch
 import torch.nn as nn
-
+import numpy as np
+import random
+import argparse
 import itertools
 import os
 from sklearn.metrics import mean_squared_error
+def set_seed(seed):
+    """
+    :param args:
+    :return:
+    """
+    # torch.manual_seed(args.seed)
+    # torch.cuda.manual_seed_all(args.seed)
+    # np.random.seed(args.seed)
+    # random.seed(args.seed)
+    # torch.backends.cudnn.deterministic = True
+    # torch.backends.cudnn.benchmark = False
+    # os.environ['PYTHONHASHSEED'] = str(seed)
+    # torch.backends.cudnn.enabled = False
+    random.seed(seed)
+    os.environ['PYTHONHASHSEED'] = str(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    # torch.backends.cudnn.enabled = False
 
 class ReverseLayerF(Function):
 

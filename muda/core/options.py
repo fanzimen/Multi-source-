@@ -4,9 +4,10 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "/..")))
 import argparse
 import torch
+import os
 
 #path define
-dataset_dir = 'C:/Users/Administrator/muda/muda'
+dataset_dir =  os.path.abspath(os.path.join(os.getcwd(), ".."))
 train_FD001_path = dataset_dir +'/data/cmapss/train_FD001.csv'
 test_FD001_path = dataset_dir +'/data/cmapss/test_FD001.csv'
 RUL_FD001_path = dataset_dir+'/data/cmapss/RUL_FD001.txt'
@@ -35,8 +36,8 @@ target_path = ["none", FD_path[1], FD_path[2], FD_path[3], FD_path[4]]
 datasetset_name = ["none", "FD001", "FD002", "FD003", "FD004"]
 
 
-source_chosen = ['None',1,3,4]
-target_chosen = ['None',2]
+source_chosen = ['None',2,3,4]
+target_chosen = ['None',1]
 
 target_name = datasetset_name[target_chosen[1]]
 source1_name = datasetset_name[source_chosen[1]]
@@ -59,6 +60,7 @@ class Options():
 
         ##
         # Base
+        self.parser.add_argument('--seed', default=2023, type=int, help='set seed for model')
         self.parser.add_argument('--target_data_path', default=target_path[target_chosen[1]], help='目标数据集的路径')
         self.parser.add_argument('--source_data_path1', default=source_path[source_chosen[1]], help='源域数据集1的路径')
         self.parser.add_argument('--source_data_path2', default=source_path[source_chosen[2]], help='源域数据集2的路径')
@@ -70,7 +72,7 @@ class Options():
         self.parser.add_argument('--sequence_length', type=int, default=30, help='序列长度')
         self.parser.add_argument('--sensor_drop',default=sensor_drop, help='去除的数据列')
         self.parser.add_argument('--l2_decay', type=float,default=1e-2, help='l2正则化')
-        self.parser.add_argument('--cuda', type=bool, default=False, help ='是否使用GPU')
+        self.parser.add_argument('--cuda', type=bool, default=True, help ='是否使用GPU')
         self.parser.add_argument('--momentum', type=float, default=0.9, help ='动量设置')
         self.parser.add_argument('--log_interval', type=int, default=10, help ='日志batch间隔')
         self.parser.add_argument('--optimizer', type=str, default='Adam', help ='优化器')
