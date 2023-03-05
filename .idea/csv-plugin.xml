@@ -17,27 +17,6 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\muda\log\FD002_2023-03-03_11_43_17_train.log">
-          <value>
-            <Attribute>
-              <option name="separator" value=":" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\muda\log\FD002_2023-03-03_11_45_49_test.log">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\muda\log\FD002_2023-03-03_11_45_49_train.log">
-          <value>
-            <Attribute>
-              <option name="separator" value=":" />
-            </Attribute>
-          </value>
-        </entry>
       </map>
     </option>
   </component>

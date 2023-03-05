@@ -2,7 +2,7 @@ from options import Options
 import data_loader
 import os
 # import model_mfsan
-from utils.utils import get_free_gpu, weight_init, weight_init2, log_in_file, visualize_total_loss, save_model,score_cal,rmse_cal,load_model
+# from utils.utils import get_free_gpu, weight_init, weight_init2, log_in_file, visualize_total_loss, save_model,score_cal,rmse_cal,load_model
 
 
 if __name__ == '__main__':
@@ -14,4 +14,29 @@ if __name__ == '__main__':
     opt.device = 'cuda:0'
     opt.save_path = './outputs/model_files/muda.pkl'
 
-    print(os.path.abspath(os.path.join(os.getcwd(), "..")))
+    history = {}
+    train_list = ['epoch','total_rul_loss']
+    sigh = [[]*2]
+    dic = dict(zip(train_list,sigh))
+    print(dic)
+    # history['total_rul_loss'] = []
+    # history['total_mmd_loss'] = []
+    # history['total_l1_loss'] = []
+    # print(history)
+    # history['epoch_rul_loss_scr1'] = []
+    # history['epoch_rul_loss_scr2'] = []
+    # history['epoch_rul_loss_scr3'] = []
+    # history['epoch_mmd_loss_scr1'] = []
+    # history['epoch_mmd_loss_scr2'] = []
+    # history['epoch_mmd_loss_scr3'] = []
+    # history['epoch_l1_loss_scr1'] = []
+    # history['epoch_l1_loss_scr2'] = []
+    # history['epoch_l1_loss_scr3'] = []
+    # history['test_rmse'] = []
+    # history['test_score'] = []
+    # history['s1_rmse'] = []
+    # history['s1_score'] = []
+    # history['s2_rmse'] = []
+    # history['s2_score'] = []
+    # history['s3_rmse'] = []
+    # history['s3_score'] = []

@@ -13,6 +13,13 @@ import torch
 from torch.utils.data import Dataset
 import random
 from options import Options
+# from sklearn.decomposition import PCA
+# from pyts.approximation import SymbolicFourierApproximation
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+from mpl_toolkits.mplot3d import Axes3D
 opt = Options().parse()
 seed = opt.seed
 # torch.backends.cudnn.enabled = False
@@ -24,13 +31,6 @@ torch.cuda.manual_seed(seed)
 torch.cuda.manual_seed_all(seed)
 torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
-# from sklearn.decomposition import PCA
-# from pyts.approximation import SymbolicFourierApproximation
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
-from mpl_toolkits.mplot3d import Axes3D
 
 def oc_history_cols(read_path, sub_dataset, train_data, test_data, save=False):
     
@@ -261,30 +261,12 @@ class seq_Dataset(Dataset):
         return seq, label
 
 def load_training(data_path_list, sequence_length, sensor_drop, batch_size,seed):
-    # random.seed(seed)
-    # os.environ['PYTHONHASHSEED'] = str(seed)
-    # np.random.seed(seed)
-    # torch.manual_seed(seed)
-    # torch.cuda.manual_seed(seed)
-    # torch.cuda.manual_seed_all(seed)
-    # torch.backends.cudnn.deterministic = True
-    # torch.backends.cudnn.benchmark = False
-    # torch.backends.cudnn.enabled = False
     train_dataset = seq_Dataset("train", data_path_list, sequence_length, sensor_drop)
     loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, num_workers=0, shuffle=True)
     return loader  # torch.Size([700, 14, 50])
 
 
 def load_testing(data_path_list, sequence_length, sensor_drop, batch_size,seed):
-    # random.seed(seed)
-    # os.environ['PYTHONHASHSEED'] = str(seed)
-    # np.random.seed(seed)
-    # torch.manual_seed(seed)
-    # torch.cuda.manual_seed(seed)
-    # torch.cuda.manual_seed_all(seed)
-    # torch.backends.cudnn.deterministic = True
-    # torch.backends.cudnn.benchmark = False
-    # torch.backends.cudnn.enabled = False
     test_dataset = seq_Dataset("test", data_path_list, sequence_length, sensor_drop)
     loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=batch_size, num_workers=0, shuffle=False)
     return loader  # torch.Size([700, 14, 50])

@@ -3,21 +3,20 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 import muda.utils.utils as utils
-def writing_settings(target_name,now,lr,momentum,l2_decay,optimizer,len_setting,source1_name,source2_name,source3_name,model):
+def writing_settings(now, opt, model, f_mfsan_train=None):
+    print("当前日期和时间：", now, file=f_mfsan_train, flush=True)
+    print('training settings:\t', 'lr:', opt.learning_rate, 'momentum:', opt.momentum, 'l2_decay:',opt.l2_decay, 'optimizer:', opt.optimizer, 'seed:', opt.seed,
+           file=f_mfsan_train, flush=True)
+    print('model architecture:\n', model, file=f_mfsan_train, flush=True)
+    print(opt.source_data_name1,opt.source_data_name2,opt.source_data_name3, "to", opt.target_data_name, file=f_mfsan_train, flush=True)
+    #
+    # print("当前日期和时间：", now,file=f_mfsan_train, flush=True)
+    # print('training settings:\t','lr:',lr,'momentum:',momentum,'l2_decay:',l2_decay,'optimizer:',optimizer,'len_setting:',len_setting,file=f_mfsan_train, flush=True)
+    # print('model architecture:\n',model,file=f_mfsan_train, flush=True)
+    # print(source1_name, source2_name,source3_name, "to", target_name,file=f_mfsan_train, flush=True)
 
-    f_mfsan_train = log_in_file('/'+target_name+'_'+now+'_train.log')
-    f_mfsan_test = log_in_file('/'+target_name+'_'+now+'_test.log')
 
-    print("当前日期和时间：", now,file=f_mfsan_train, flush=True)
-    print('training settings:\t','lr:',lr,'momentum:',momentum,'l2_decay:',l2_decay,'optimizer:',optimizer,'len_setting:',len_setting,file=f_mfsan_train, flush=True)
-    print('model architecture:\n',model,file=f_mfsan_train, flush=True)
-    print(source1_name, source2_name,source3_name, "to", target_name,file=f_mfsan_train, flush=True)
-    print("当前日期和时间：", now,file=f_mfsan_test, flush=True)
-    print('training settings:\t','lr:',lr,'momentum:',momentum,'l2_decay:',l2_decay,'optimizer:',optimizer,'len_setting:',len_setting,file=f_mfsan_test, flush=True)
-    print('model architecture:\n',model,file=f_mfsan_test, flush=True)
-    print(source1_name, source2_name,source3_name, "to", target_name,file=f_mfsan_test, flush=True)
-
-def figure_generate(current_dir,history,now,target_name,rmse, score):
+def figure_generate(current_dir,history,now,target_name,pred,target):
     # Generate the figure
     fig = plt.figure(figsize=(15, 12))
     plt.subplot(2, 2, 1)
@@ -55,4 +54,13 @@ def figure_generate(current_dir,history,now,target_name,rmse, score):
     plt.legend()
     print("ALL is finished!!!")
     # Save the plots to a file
-    plt.savefig(current_dir+'/outputs/figures/'+now+"_target_"+target_name+'.png')
+    plt.savefig(current_dir+'/outputs/figures/train_loss/'+now+"_target_"+target_name+'.png')
+
+    fig_verify = plt.figure(figsize=(12, 6))
+    plt.plot(pred, color="blue")
+    plt.plot(target, color="green")
+    plt.title('prediction')
+    plt.ylabel('value')
+    plt.xlabel('row')
+    plt.legend(['predicted', 'actual data'], loc='upper left')
+    plt.savefig(current_dir+'/outputs/figures/test_result/'+ now + "_target_" + target_name + '_test_result.png')

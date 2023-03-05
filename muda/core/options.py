@@ -36,8 +36,8 @@ target_path = ["none", FD_path[1], FD_path[2], FD_path[3], FD_path[4]]
 datasetset_name = ["none", "FD001", "FD002", "FD003", "FD004"]
 
 
-source_chosen = ['None',2,3,4]
-target_chosen = ['None',1]
+source_chosen = ['None',1,2,4]
+target_chosen = ['None',3]
 
 target_name = datasetset_name[target_chosen[1]]
 source1_name = datasetset_name[source_chosen[1]]
@@ -60,7 +60,7 @@ class Options():
 
         ##
         # Base
-        self.parser.add_argument('--seed', default=2023, type=int, help='set seed for model')
+        self.parser.add_argument('--seed', default=6, type=int, help='set seed for model')
         self.parser.add_argument('--target_data_path', default=target_path[target_chosen[1]], help='目标数据集的路径')
         self.parser.add_argument('--source_data_path1', default=source_path[source_chosen[1]], help='源域数据集1的路径')
         self.parser.add_argument('--source_data_path2', default=source_path[source_chosen[2]], help='源域数据集2的路径')
