@@ -5,7 +5,18 @@ from RUL.MutiSource.utils import mmd, coral
 import torch.nn.functional as F
 import torch
 from RUL.MutiSource.utils import ReverseLayerF
+from options import Options
 
+opt = Options().parse()
+seed = opt.seed
+random.seed(seed)
+os.environ['PYTHONHASHSEED'] = str(seed)
+np.random.seed(seed)
+torch.manual_seed(seed)
+torch.cuda.manual_seed(seed)
+torch.cuda.manual_seed_all(seed)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
 class Discriminator(nn.Module):
     def __init__(self):
         super(Discriminator, self).__init__()

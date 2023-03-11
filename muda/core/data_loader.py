@@ -12,7 +12,6 @@ from sklearn import preprocessing
 import torch
 from torch.utils.data import Dataset
 import random
-from options import Options
 # from sklearn.decomposition import PCA
 # from pyts.approximation import SymbolicFourierApproximation
 import pandas as pd
@@ -20,9 +19,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from mpl_toolkits.mplot3d import Axes3D
+from options import Options
+
 opt = Options().parse()
 seed = opt.seed
-# torch.backends.cudnn.enabled = False
 random.seed(seed)
 os.environ['PYTHONHASHSEED'] = str(seed)
 np.random.seed(seed)

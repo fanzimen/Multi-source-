@@ -1,9 +1,9 @@
 "#_*_ coding:utf-8 _*_"
-import sys
 import os
+import sys
+
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "/..")))
 import argparse
-import torch
 import os
 
 #path define
