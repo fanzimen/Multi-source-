@@ -3,6 +3,20 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\muda\log\DANN_FD003_2023-03-11_20_50_38_test.log">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\muda\log\DANN_FD003_2023-03-11_20_50_38_train.log">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\muda\log\FD001_2023-03-03_17_05_32_test.log">
           <value>
             <Attribute>

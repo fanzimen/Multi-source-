@@ -260,15 +260,15 @@ class seq_Dataset(Dataset):
         label = float(label)
         return seq, label
 
-def load_training(data_path_list, sequence_length, sensor_drop, batch_size,seed):
+def load_training(data_path_list, sequence_length, sensor_drop, batch_size,suffle = True):
     train_dataset = seq_Dataset("train", data_path_list, sequence_length, sensor_drop)
-    loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, num_workers=0, shuffle=True)
+    loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, num_workers=0, shuffle=suffle )
     return loader  # torch.Size([700, 14, 50])
 
 
-def load_testing(data_path_list, sequence_length, sensor_drop, batch_size,seed):
+def load_testing(data_path_list, sequence_length, sensor_drop, batch_size,suffle = False):
     test_dataset = seq_Dataset("test", data_path_list, sequence_length, sensor_drop)
-    loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=batch_size, num_workers=0, shuffle=False)
+    loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=batch_size, num_workers=0, shuffle=suffle)
     return loader  # torch.Size([700, 14, 50])
 
 

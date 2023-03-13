@@ -36,8 +36,8 @@ target_path = ["none", FD_path[1], FD_path[2], FD_path[3], FD_path[4]]
 datasetset_name = ["none", "FD001", "FD002", "FD003", "FD004"]
 
 
-source_chosen = ['None',1,2,4]
-target_chosen = ['None',3]
+source_chosen = ['None',2,3,4]
+target_chosen = ['None',1]
 
 target_name = datasetset_name[target_chosen[1]]
 source1_name = datasetset_name[source_chosen[1]]
