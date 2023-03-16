@@ -1,0 +1,84 @@
+当前日期和时间： 2023-03-15_12_07_29
+DANN_ FD001 FD002 FD004 to FD003
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 6
+Test result:  best rmse: 33.464588 best rmse's score: 3697.584155
+best s1 mse: 34.340099 s1 score: 13176.230830 s2 mse: 34.014931 s2 score: 7237.041416 s3 mse: 41.378925 s3 score: 5237.711654 
+
+当前日期和时间： 2023-03-15_13_19_37
+DANN_ FD001 FD002 FD004 to FD003
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 5
+Test result:  best rmse: 34.274921 best rmse's score: 4786.672781
+best s1 mse: 35.294292 s1 score: 11634.135660 s2 mse: 34.428139 s2 score: 13184.290751 s3 mse: 41.662201 s3 score: 5656.518452 
+
+当前日期和时间： 2023-03-15_13_54_32
+DANN_ FD001 FD002 FD004 to FD003
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 2023
+Test result:  best rmse: 38.422318 best rmse's score: 9330.698559
+best s1 mse: 38.807850 s1 score: 43368.440775 s2 mse: 41.098312 s2 score: 33584.977145 s3 mse: 51.079700 s3 score: 15479.842627 
+
+当前日期和时间： 2023-03-15_14_20_18
+DANN_ FD001 FD002 FD004 to FD003
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 10
+Test result:  best rmse: 35.621307 best rmse's score: 4543.886249
+best s1 mse: 34.904667 s1 score: 13861.698227 s2 mse: 36.830799 s2 score: 11494.148256 s3 mse: 47.921074 s3 score: 10894.039919 
+
+当前日期和时间： 2023-03-15_14_50_12
+DANN_ FD001 FD002 FD004 to FD003
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 6
+Test result:  best rmse: 33.408405 best rmse's score: 6239.259561
+best s1 mse: 35.652458 s1 score: 21071.438117 s2 mse: 37.036678 s2 score: 18419.196152 s3 mse: 37.029049 s3 score: 3262.334591 
+
+当前日期和时间： 2023-03-15_15_25_11
+FD001 FD002 FD003 to FD004
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 6
+Test result:  best rmse: 34.651363 best rmse's score: 11418.024689
+best s1 mse: 34.155739 s1 score: 11983.792518 s2 mse: 34.265823 s2 score: 21332.229074 s3 mse: 38.847160 s3 score: 12648.859943 
+
+当前日期和时间： 2023-03-15_17_05_28
+FD001 FD003 to FD002
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 6
+Test result:  best rmse: 44.123798 best rmse's score: 91195.361288
+best s1 mse: 43.163967 s1 score: 50742.186296 s2 mse: 46.998734 s2 score: 223014.152113  
+
+当前日期和时间： 2023-03-15_17_15_59
+FD001 FD004 to FD002
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 6
+Test result:  best rmse: 31.150978 best rmse's score: 18747.036044
+best s1 mse: 31.011452 s1 score: 10655.094154 s2 mse: 33.123257 s2 score: 41912.472246  
+
+当前日期和时间： 2023-03-15_18_15_45
+FD003 FD004 to FD002
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 6
+Test result:  best rmse: 32.908611 best rmse's score: 6895.036999
+best s1 mse: 34.331173 s1 score: 8704.522991 s2 mse: 32.034222 s2 score: 6113.010673  
+
+当前日期和时间： 2023-03-15_19_00_55
+FD002 FD003 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 6
+Test result:  best rmse: 18.886478 best rmse's score: 1372.093148
+best s1 mse: 20.809883 s1 score: 1578.321457 s2 mse: 20.117720 s2 score: 2470.489678  
+
+当前日期和时间： 2023-03-15_19_37_32
+FD002 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 6
+Test result:  best rmse: 22.968262 best rmse's score: 1192.242821
+best s1 mse: 22.998167 s1 score: 1094.669387 s2 mse: 24.392143 s2 score: 1808.959925  
+
+当前日期和时间： 2023-03-15_19_47_06
+FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 6
+Test result:  best rmse: 26.905663 best rmse's score: 3045.845916
+best s1 mse: 29.302565 s1 score: 13918.802489 s2 mse: 31.986492 s2 score: 2652.339929  
+
+当前日期和时间： 2023-03-15_21_23_39
+FD001 FD003 to FD002
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 6
+Test result:  best rmse: 44.681721 best rmse's score: 106577.378235
+best s1 mse: 44.625488 s1 score: 98573.365923 s2 mse: 45.669849 s2 score: 150404.807106  
+
+当前日期和时间： 2023-03-15_21_40_01
+FD001 FD003 to FD002
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 42
+Test result:  best rmse: 43.119511 best rmse's score: 95700.862717
+best s1 mse: 43.255611 s1 score: 128448.334227 s2 mse: 44.447517 s2 score: 94633.105558  
+

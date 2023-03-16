@@ -6,7 +6,7 @@ from muda.model import model_mfsan_dann as model_mfsan
 from muda.utils.utils import weight_init, log_in_file, save_model, set_seed
 import time
 from muda.utils.EarlyStopper import EarlyStopper
-from muda.utils.print_things import figure_generate,writing_settings,figure_generate_dann
+from muda.utils.print_things import writing_settings,figure_generate_dann
 import pandas as pd
 import os
 import torch
@@ -224,23 +224,23 @@ if __name__ == '__main__':
     opt.batch_size = 256
     opt.learning_rate = 0.001
     opt.epochs = 500
-    opt.seed = 42
-    opt.l2_decay = 1e-3
+    opt.seed = 6
+    opt.l2_decay = 1e-4
     opt.cuda = True
     # opt.save_path = './outputs/model_files/muda.pkl'
     set_seed(opt.seed)
     # 读取源域训练数据
     target_train_loader = data_loader.load_training(opt.target_data_path, opt.sequence_length, opt.sensor_drop,
-                                                    opt.batch_size,opt.seed)
+                                                    opt.batch_size, opt.seed)
     target_test_loader = data_loader.load_testing(opt.target_data_path, opt.sequence_length, opt.sensor_drop,
-                                                  opt.batch_size,opt.seed)
+                                                  opt.batch_size, opt.seed)
 
     source1_loader = data_loader.load_training(opt.source_data_path1, opt.sequence_length, opt.sensor_drop,
-                     opt.batch_size,opt.seed)
+                                               opt.batch_size, opt.seed)
     source2_loader = data_loader.load_training(opt.source_data_path2, opt.sequence_length, opt.sensor_drop,
-                      opt.batch_size,opt.seed)
+                                               opt.batch_size, opt.seed)
     source3_loader = data_loader.load_training(opt.source_data_path3, opt.sequence_length, opt.sensor_drop,
-                      opt.batch_size,opt.seed)
+                                               opt.batch_size, opt.seed)
 
 
     source1_len = len(source1_loader)
@@ -290,8 +290,16 @@ if __name__ == '__main__':
     #数据写入
     f_mfsan_train = log_in_file('\\' + 'DANN_'+opt.target_data_name+ '_' + now + '_train.log')
     f_mfsan_test = log_in_file('\\' + 'DANN_' + opt.target_data_name+ '_' + now + '_test.log')
+    overall_log = log_in_file('\\' + 'overall_log.log')
     writing_settings(now, opt, model, f_mfsan_train=f_mfsan_train)
     writing_settings(now, opt, model, f_mfsan_train=f_mfsan_test)
+    print("当前日期和时间：", now, file=overall_log, flush=True)
+    print('DANN_',opt.source_data_name1, opt.source_data_name2, opt.source_data_name3, "to", opt.target_data_name,
+          file=overall_log, flush=True)
+    print('training settings:\t', 'lr:', opt.learning_rate, 'l2_decay:',opt.l2_decay, 'optimizer:', opt.optimizer, 'seed:', opt.seed,
+          file=overall_log, flush=True)
+
+
 
 
     #训练
@@ -349,7 +357,10 @@ if __name__ == '__main__':
         if early_stopper.early_stop(t_rmse):
             print('Early Stop！')
             break
-
+    print("Test result: ", "best rmse: %.6f best rmse's score: %.6f" % (rmse, score), file=overall_log, flush=True)
+    print("best s1 mse: %.6f s1 score: %.6f s2 mse: %.6f s2 score: %.6f s3 mse: %.6f s3 score: %.6f" % (s1_rmse, s1_score,s2_rmse,s2_score, s3_rmse, s3_score), "\n",
+          file=overall_log, flush=True)
+    overall_log.close()
     f_mfsan_train.close()
     f_mfsan_test.close()
 

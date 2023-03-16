@@ -1,12 +1,15 @@
 import torch.nn as nn
-import math
-import torch.utils.model_zoo as model_zoo
-from RUL.MutiSource.utils import mmd, coral
+# import math
+# import torch.utils.model_zoo as model_zoo
+from muda.utils.utils import mmd, coral
 import torch.nn.functional as F
 import torch
-from RUL.MutiSource.utils import ReverseLayerF
+from muda.utils.utils import ReverseLayerF
+# import muda.utils.utils as utils
 from options import Options
-
+import random
+import os
+import numpy as np
 opt = Options().parse()
 seed = opt.seed
 random.seed(seed)
@@ -84,7 +87,7 @@ class DFE(nn.Module): #BiLSTM
 
 class MFSAN(nn.Module):
 
-    def __init__(self, num_classes=1, inplanes=20, planes=128, hidden_size=100,avgpool_size = 2):
+    def __init__(self, num_classes=1, inplanes=14, planes=128, hidden_size=100,avgpool_size = 2):
         super(MFSAN, self).__init__()
         self.sharedNet = CFE(inplanes, planes)
 

@@ -1,0 +1,42 @@
+当前日期和时间： 2023-03-15_17_04_25
+training settings:	 lr: 0.001 momentum: 0.9 l2_decay: 0.001 optimizer: Adam seed: 6
+model architecture:
+ MFSAN(
+  (sharedNet): CFE(
+    (conv1): Conv1d(14, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bn1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (conv2): Conv1d(32, 64, kernel_size=(2,), stride=(1,), padding=(1,), bias=False)
+    (bn2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (conv3): Conv1d(64, 128, kernel_size=(2,), stride=(1,), bias=False)
+    (bn3): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): ReLU(inplace=True)
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (sonnet1): DFE(
+    (rnn): LSTM(128, 100, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
+  )
+  (sonnet2): DFE(
+    (rnn): LSTM(128, 100, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
+  )
+  (rul_fc_son1): Linear(in_features=199, out_features=1, bias=True)
+  (rul_fc_son2): Linear(in_features=199, out_features=1, bias=True)
+  (avgpool): AvgPool1d(kernel_size=(2,), stride=(1,), padding=(0,))
+)
+FD001 FD002 to FD004
+Train source1 iter: 10 [(11%)]	Loss: 0.079603	RUL_Loss: 0.040047	mmd_Loss: 0.064445	l1_Loss: 0.013933
+Train source2 iter: 10 [(11%)]	Loss: 0.102914	RUL_Loss: 0.063383	mmd_Loss: 0.064143	l1_Loss: 0.014187
+Train source1 iter: 20 [(22%)]	Loss: 0.097000	RUL_Loss: 0.039838	mmd_Loss: 0.061991	l1_Loss: 0.009065
+Train source2 iter: 20 [(22%)]	Loss: 0.115538	RUL_Loss: 0.060432	mmd_Loss: 0.059222	l1_Loss: 0.009279
+Train source1 iter: 30 [(33%)]	Loss: 0.105168	RUL_Loss: 0.042552	mmd_Loss: 0.056980	l1_Loss: 0.010269
+Train source2 iter: 30 [(33%)]	Loss: 0.121606	RUL_Loss: 0.056090	mmd_Loss: 0.060458	l1_Loss: 0.009906
+Train source1 iter: 40 [(44%)]	Loss: 0.108777	RUL_Loss: 0.041511	mmd_Loss: 0.059416	l1_Loss: 0.009449
+Train source2 iter: 40 [(44%)]	Loss: 0.125029	RUL_Loss: 0.060029	mmd_Loss: 0.057063	l1_Loss: 0.009482
+Train source1 iter: 50 [(56%)]	Loss: 0.107288	RUL_Loss: 0.044365	mmd_Loss: 0.053612	l1_Loss: 0.009799
+Train source2 iter: 50 [(56%)]	Loss: 0.131917	RUL_Loss: 0.063618	mmd_Loss: 0.058857	l1_Loss: 0.009972
+Train source1 iter: 60 [(67%)]	Loss: 0.110519	RUL_Loss: 0.042131	mmd_Loss: 0.059212	l1_Loss: 0.009351
+Train source2 iter: 60 [(67%)]	Loss: 0.135584	RUL_Loss: 0.069263	mmd_Loss: 0.057371	l1_Loss: 0.009119
+Train source1 iter: 70 [(78%)]	Loss: 0.108048	RUL_Loss: 0.043741	mmd_Loss: 0.053769	l1_Loss: 0.010592
+Train source2 iter: 70 [(78%)]	Loss: 0.134760	RUL_Loss: 0.063407	mmd_Loss: 0.061687	l1_Loss: 0.009726
+Train source1 iter: 80 [(89%)]	Loss: 0.108230	RUL_Loss: 0.041822	mmd_Loss: 0.057070	l1_Loss: 0.009356
+Train source2 iter: 80 [(89%)]	Loss: 0.128598	RUL_Loss: 0.060593	mmd_Loss: 0.058339	l1_Loss: 0.009686
+Train epochs:1.000000	

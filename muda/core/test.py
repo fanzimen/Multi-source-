@@ -1,6 +1,5 @@
 from options import Options
-import data_loader
-import os
+
 # import model_mfsan
 # from utils.utils import get_free_gpu, weight_init, weight_init2, log_in_file, visualize_total_loss, save_model,score_cal,rmse_cal,load_model
 
