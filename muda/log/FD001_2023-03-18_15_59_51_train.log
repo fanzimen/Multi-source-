@@ -1,0 +1,1355 @@
+当前日期和时间： 2023-03-18_15_59_51
+training settings:	 lr: 0.001 momentum: 0.9 l2_decay: 0.001 optimizer: Adam seed: 6
+model architecture:
+ MFSAN(
+  (sharedNet): CFE(
+    (conv1): Conv1d(14, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bn1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (conv2): Conv1d(32, 64, kernel_size=(2,), stride=(1,), padding=(1,), bias=False)
+    (bn2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (conv3): Conv1d(64, 128, kernel_size=(2,), stride=(1,), bias=False)
+    (bn3): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): ReLU(inplace=True)
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (sonnet1): DFE(
+    (rnn): LSTM(128, 100, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
+  )
+  (sonnet2): DFE(
+    (rnn): LSTM(128, 100, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
+  )
+  (sonnet3): DFE(
+    (rnn): LSTM(128, 100, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
+  )
+  (rul_fc_son1): Linear(in_features=199, out_features=1, bias=True)
+  (rul_fc_son2): Linear(in_features=199, out_features=1, bias=True)
+  (rul_fc_son3): Linear(in_features=199, out_features=1, bias=True)
+  (avgpool): AvgPool1d(kernel_size=(2,), stride=(1,), padding=(0,))
+)
+FD002 FD003 FD004 to FD001
+Train source1 iter: 10 [(9%)]	Loss: 0.141658	RUL_Loss: 0.118990	mmd_Loss: 0.022958	l1_Loss: 0.028612
+Train source2 iter: 10 [(9%)]	Loss: 0.064724	RUL_Loss: 0.029621	mmd_Loss: 0.031452	l1_Loss: 0.048407
+Train source3 iter: 10 [(9%)]	Loss: 0.373975	RUL_Loss: 0.318931	mmd_Loss: 0.062401	l1_Loss: 0.062822
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.144707	RUL_Loss: 0.107065	mmd_Loss: 0.022542	l1_Loss: 0.028549
+Train source2 iter: 20 [(19%)]	Loss: 0.084316	RUL_Loss: 0.030817	mmd_Loss: 0.028487	l1_Loss: 0.044125
+Train source3 iter: 20 [(19%)]	Loss: 0.391579	RUL_Loss: 0.306203	mmd_Loss: 0.054390	l1_Loss: 0.061487
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.157865	RUL_Loss: 0.113065	mmd_Loss: 0.021323	l1_Loss: 0.029095
+Train source2 iter: 30 [(28%)]	Loss: 0.098185	RUL_Loss: 0.032337	mmd_Loss: 0.030331	l1_Loss: 0.043774
+Train source3 iter: 30 [(28%)]	Loss: 0.415945	RUL_Loss: 0.306762	mmd_Loss: 0.064126	l1_Loss: 0.058748
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.161767	RUL_Loss: 0.115709	mmd_Loss: 0.019549	l1_Loss: 0.028674
+Train source2 iter: 40 [(38%)]	Loss: 0.096791	RUL_Loss: 0.032754	mmd_Loss: 0.023600	l1_Loss: 0.043449
+Train source3 iter: 40 [(38%)]	Loss: 0.419225	RUL_Loss: 0.304618	mmd_Loss: 0.059076	l1_Loss: 0.060920
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.168731	RUL_Loss: 0.118206	mmd_Loss: 0.022355	l1_Loss: 0.029082
+Train source2 iter: 50 [(47%)]	Loss: 0.105056	RUL_Loss: 0.034716	mmd_Loss: 0.028601	l1_Loss: 0.043008
+Train source3 iter: 50 [(47%)]	Loss: 0.434044	RUL_Loss: 0.315949	mmd_Loss: 0.059428	l1_Loss: 0.060798
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.162522	RUL_Loss: 0.112139	mmd_Loss: 0.021910	l1_Loss: 0.028825
+Train source2 iter: 60 [(57%)]	Loss: 0.106044	RUL_Loss: 0.034040	mmd_Loss: 0.028924	l1_Loss: 0.043583
+Train source3 iter: 60 [(57%)]	Loss: 0.408091	RUL_Loss: 0.289846	mmd_Loss: 0.057501	l1_Loss: 0.061570
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.163960	RUL_Loss: 0.111002	mmd_Loss: 0.024488	l1_Loss: 0.028614
+Train source2 iter: 70 [(66%)]	Loss: 0.106308	RUL_Loss: 0.032707	mmd_Loss: 0.029463	l1_Loss: 0.044338
+Train source3 iter: 70 [(66%)]	Loss: 0.444171	RUL_Loss: 0.326837	mmd_Loss: 0.057764	l1_Loss: 0.059889
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.154765	RUL_Loss: 0.102573	mmd_Loss: 0.022527	l1_Loss: 0.029721
+Train source2 iter: 80 [(75%)]	Loss: 0.106533	RUL_Loss: 0.032078	mmd_Loss: 0.030215	l1_Loss: 0.044319
+Train source3 iter: 80 [(75%)]	Loss: 0.439561	RUL_Loss: 0.325224	mmd_Loss: 0.054310	l1_Loss: 0.060148
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.164001	RUL_Loss: 0.112821	mmd_Loss: 0.022751	l1_Loss: 0.028450
+Train source2 iter: 90 [(85%)]	Loss: 0.100728	RUL_Loss: 0.029408	mmd_Loss: 0.028363	l1_Loss: 0.042987
+Train source3 iter: 90 [(85%)]	Loss: 0.425116	RUL_Loss: 0.308858	mmd_Loss: 0.055967	l1_Loss: 0.060339
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.162481	RUL_Loss: 0.110792	mmd_Loss: 0.020970	l1_Loss: 0.030727
+Train source2 iter: 100 [(94%)]	Loss: 0.104142	RUL_Loss: 0.031259	mmd_Loss: 0.028370	l1_Loss: 0.044525
+Train source3 iter: 100 [(94%)]	Loss: 0.437455	RUL_Loss: 0.320964	mmd_Loss: 0.054710	l1_Loss: 0.061799
+
+
+Train epochs:1.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.125542	RUL_Loss: 0.110733	mmd_Loss: 0.018928	l1_Loss: 0.014763
+Train source2 iter: 10 [(9%)]	Loss: 0.053330	RUL_Loss: 0.033737	mmd_Loss: 0.020858	l1_Loss: 0.023715
+Train source3 iter: 10 [(9%)]	Loss: 0.230369	RUL_Loss: 0.203449	mmd_Loss: 0.030377	l1_Loss: 0.030864
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.132574	RUL_Loss: 0.107787	mmd_Loss: 0.018135	l1_Loss: 0.015507
+Train source2 iter: 20 [(19%)]	Loss: 0.065869	RUL_Loss: 0.033954	mmd_Loss: 0.022300	l1_Loss: 0.021018
+Train source3 iter: 20 [(19%)]	Loss: 0.259109	RUL_Loss: 0.213608	mmd_Loss: 0.031651	l1_Loss: 0.030105
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.138476	RUL_Loss: 0.108839	mmd_Loss: 0.018945	l1_Loss: 0.014408
+Train source2 iter: 30 [(28%)]	Loss: 0.074681	RUL_Loss: 0.038043	mmd_Loss: 0.019089	l1_Loss: 0.022143
+Train source3 iter: 30 [(28%)]	Loss: 0.270366	RUL_Loss: 0.216396	mmd_Loss: 0.029774	l1_Loss: 0.030965
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.142733	RUL_Loss: 0.112929	mmd_Loss: 0.016109	l1_Loss: 0.015097
+Train source2 iter: 40 [(38%)]	Loss: 0.073034	RUL_Loss: 0.032837	mmd_Loss: 0.020134	l1_Loss: 0.021953
+Train source3 iter: 40 [(38%)]	Loss: 0.272560	RUL_Loss: 0.214786	mmd_Loss: 0.029495	l1_Loss: 0.030995
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.138599	RUL_Loss: 0.107700	mmd_Loss: 0.015859	l1_Loss: 0.015598
+Train source2 iter: 50 [(47%)]	Loss: 0.074139	RUL_Loss: 0.033283	mmd_Loss: 0.020321	l1_Loss: 0.021273
+Train source3 iter: 50 [(47%)]	Loss: 0.276212	RUL_Loss: 0.219114	mmd_Loss: 0.028350	l1_Loss: 0.029780
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.140748	RUL_Loss: 0.111159	mmd_Loss: 0.014385	l1_Loss: 0.015412
+Train source2 iter: 60 [(57%)]	Loss: 0.077856	RUL_Loss: 0.035315	mmd_Loss: 0.020405	l1_Loss: 0.022432
+Train source3 iter: 60 [(57%)]	Loss: 0.268928	RUL_Loss: 0.207829	mmd_Loss: 0.031598	l1_Loss: 0.029927
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.141811	RUL_Loss: 0.109643	mmd_Loss: 0.017460	l1_Loss: 0.014795
+Train source2 iter: 70 [(66%)]	Loss: 0.076864	RUL_Loss: 0.036327	mmd_Loss: 0.018726	l1_Loss: 0.021921
+Train source3 iter: 70 [(66%)]	Loss: 0.281046	RUL_Loss: 0.219735	mmd_Loss: 0.031761	l1_Loss: 0.029716
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.142146	RUL_Loss: 0.110956	mmd_Loss: 0.016690	l1_Loss: 0.014534
+Train source2 iter: 80 [(75%)]	Loss: 0.080457	RUL_Loss: 0.038884	mmd_Loss: 0.019616	l1_Loss: 0.022000
+Train source3 iter: 80 [(75%)]	Loss: 0.274335	RUL_Loss: 0.212313	mmd_Loss: 0.031285	l1_Loss: 0.030802
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.140382	RUL_Loss: 0.109518	mmd_Loss: 0.015992	l1_Loss: 0.014884
+Train source2 iter: 90 [(85%)]	Loss: 0.076780	RUL_Loss: 0.035993	mmd_Loss: 0.019063	l1_Loss: 0.021740
+Train source3 iter: 90 [(85%)]	Loss: 0.271306	RUL_Loss: 0.209150	mmd_Loss: 0.031701	l1_Loss: 0.030481
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.148069	RUL_Loss: 0.118047	mmd_Loss: 0.014937	l1_Loss: 0.015089
+Train source2 iter: 100 [(94%)]	Loss: 0.073645	RUL_Loss: 0.034416	mmd_Loss: 0.017459	l1_Loss: 0.021776
+Train source3 iter: 100 [(94%)]	Loss: 0.285292	RUL_Loss: 0.226416	mmd_Loss: 0.028412	l1_Loss: 0.030474
+
+
+Train epochs:2.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.112115	RUL_Loss: 0.101073	mmd_Loss: 0.017656	l1_Loss: 0.007462
+Train source2 iter: 10 [(9%)]	Loss: 0.048104	RUL_Loss: 0.033485	mmd_Loss: 0.019907	l1_Loss: 0.013349
+Train source3 iter: 10 [(9%)]	Loss: 0.172339	RUL_Loss: 0.155468	mmd_Loss: 0.024454	l1_Loss: 0.013927
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.125114	RUL_Loss: 0.106501	mmd_Loss: 0.017675	l1_Loss: 0.007588
+Train source2 iter: 20 [(19%)]	Loss: 0.052812	RUL_Loss: 0.030657	mmd_Loss: 0.018020	l1_Loss: 0.012050
+Train source3 iter: 20 [(19%)]	Loss: 0.178291	RUL_Loss: 0.151413	mmd_Loss: 0.022539	l1_Loss: 0.013941
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.127691	RUL_Loss: 0.103615	mmd_Loss: 0.019180	l1_Loss: 0.007916
+Train source2 iter: 30 [(28%)]	Loss: 0.056122	RUL_Loss: 0.029036	mmd_Loss: 0.018274	l1_Loss: 0.012208
+Train source3 iter: 30 [(28%)]	Loss: 0.179679	RUL_Loss: 0.146884	mmd_Loss: 0.023294	l1_Loss: 0.013614
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.120225	RUL_Loss: 0.098868	mmd_Loss: 0.014745	l1_Loss: 0.007617
+Train source2 iter: 40 [(38%)]	Loss: 0.058300	RUL_Loss: 0.031657	mmd_Loss: 0.015389	l1_Loss: 0.012507
+Train source3 iter: 40 [(38%)]	Loss: 0.183430	RUL_Loss: 0.148789	mmd_Loss: 0.022352	l1_Loss: 0.013917
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.125447	RUL_Loss: 0.103141	mmd_Loss: 0.014903	l1_Loss: 0.007805
+Train source2 iter: 50 [(47%)]	Loss: 0.059936	RUL_Loss: 0.031646	mmd_Loss: 0.015767	l1_Loss: 0.013034
+Train source3 iter: 50 [(47%)]	Loss: 0.183372	RUL_Loss: 0.148321	mmd_Loss: 0.021937	l1_Loss: 0.013747
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.126352	RUL_Loss: 0.100702	mmd_Loss: 0.018091	l1_Loss: 0.007738
+Train source2 iter: 60 [(57%)]	Loss: 0.059447	RUL_Loss: 0.029784	mmd_Loss: 0.017658	l1_Loss: 0.012212
+Train source3 iter: 60 [(57%)]	Loss: 0.184257	RUL_Loss: 0.147722	mmd_Loss: 0.022946	l1_Loss: 0.013845
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.125755	RUL_Loss: 0.102777	mmd_Loss: 0.015040	l1_Loss: 0.008001
+Train source2 iter: 70 [(66%)]	Loss: 0.062812	RUL_Loss: 0.030734	mmd_Loss: 0.019886	l1_Loss: 0.012278
+Train source3 iter: 70 [(66%)]	Loss: 0.178804	RUL_Loss: 0.139667	mmd_Loss: 0.024948	l1_Loss: 0.014295
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.128869	RUL_Loss: 0.101572	mmd_Loss: 0.019727	l1_Loss: 0.007598
+Train source2 iter: 80 [(75%)]	Loss: 0.058947	RUL_Loss: 0.029377	mmd_Loss: 0.016934	l1_Loss: 0.012667
+Train source3 iter: 80 [(75%)]	Loss: 0.187528	RUL_Loss: 0.150281	mmd_Loss: 0.023302	l1_Loss: 0.013984
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.139548	RUL_Loss: 0.110621	mmd_Loss: 0.021260	l1_Loss: 0.007678
+Train source2 iter: 90 [(85%)]	Loss: 0.065257	RUL_Loss: 0.033030	mmd_Loss: 0.019631	l1_Loss: 0.012610
+Train source3 iter: 90 [(85%)]	Loss: 0.191429	RUL_Loss: 0.154553	mmd_Loss: 0.022609	l1_Loss: 0.014282
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.131512	RUL_Loss: 0.106388	mmd_Loss: 0.017563	l1_Loss: 0.007565
+Train source2 iter: 100 [(94%)]	Loss: 0.061912	RUL_Loss: 0.029672	mmd_Loss: 0.019181	l1_Loss: 0.013064
+Train source3 iter: 100 [(94%)]	Loss: 0.180913	RUL_Loss: 0.142892	mmd_Loss: 0.023455	l1_Loss: 0.014573
+
+
+Train epochs:3.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.105395	RUL_Loss: 0.094730	mmd_Loss: 0.017609	l1_Loss: 0.006654
+Train source2 iter: 10 [(9%)]	Loss: 0.043505	RUL_Loss: 0.031325	mmd_Loss: 0.017530	l1_Loss: 0.010179
+Train source3 iter: 10 [(9%)]	Loss: 0.138462	RUL_Loss: 0.123097	mmd_Loss: 0.023031	l1_Loss: 0.011924
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.112220	RUL_Loss: 0.096658	mmd_Loss: 0.014547	l1_Loss: 0.006574
+Train source2 iter: 20 [(19%)]	Loss: 0.050204	RUL_Loss: 0.031299	mmd_Loss: 0.015772	l1_Loss: 0.009888
+Train source3 iter: 20 [(19%)]	Loss: 0.156246	RUL_Loss: 0.129082	mmd_Loss: 0.025458	l1_Loss: 0.011410
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.109301	RUL_Loss: 0.090194	mmd_Loss: 0.014848	l1_Loss: 0.006656
+Train source2 iter: 30 [(28%)]	Loss: 0.055579	RUL_Loss: 0.033209	mmd_Loss: 0.016170	l1_Loss: 0.009005
+Train source3 iter: 30 [(28%)]	Loss: 0.153648	RUL_Loss: 0.123107	mmd_Loss: 0.023171	l1_Loss: 0.011200
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.106789	RUL_Loss: 0.084153	mmd_Loss: 0.017091	l1_Loss: 0.006610
+Train source2 iter: 40 [(38%)]	Loss: 0.051709	RUL_Loss: 0.028686	mmd_Loss: 0.014315	l1_Loss: 0.009791
+Train source3 iter: 40 [(38%)]	Loss: 0.155413	RUL_Loss: 0.124144	mmd_Loss: 0.021889	l1_Loss: 0.010850
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.105949	RUL_Loss: 0.082253	mmd_Loss: 0.017616	l1_Loss: 0.006507
+Train source2 iter: 50 [(47%)]	Loss: 0.053581	RUL_Loss: 0.028783	mmd_Loss: 0.015679	l1_Loss: 0.009566
+Train source3 iter: 50 [(47%)]	Loss: 0.153319	RUL_Loss: 0.120685	mmd_Loss: 0.022365	l1_Loss: 0.010858
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.107530	RUL_Loss: 0.083263	mmd_Loss: 0.018638	l1_Loss: 0.005799
+Train source2 iter: 60 [(57%)]	Loss: 0.058233	RUL_Loss: 0.032822	mmd_Loss: 0.016327	l1_Loss: 0.009262
+Train source3 iter: 60 [(57%)]	Loss: 0.155934	RUL_Loss: 0.122900	mmd_Loss: 0.022495	l1_Loss: 0.010769
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.106756	RUL_Loss: 0.085248	mmd_Loss: 0.015114	l1_Loss: 0.006452
+Train source2 iter: 70 [(66%)]	Loss: 0.056604	RUL_Loss: 0.029673	mmd_Loss: 0.017538	l1_Loss: 0.009466
+Train source3 iter: 70 [(66%)]	Loss: 0.154804	RUL_Loss: 0.120646	mmd_Loss: 0.022763	l1_Loss: 0.011487
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.109742	RUL_Loss: 0.087989	mmd_Loss: 0.015473	l1_Loss: 0.006304
+Train source2 iter: 80 [(75%)]	Loss: 0.051474	RUL_Loss: 0.027583	mmd_Loss: 0.014733	l1_Loss: 0.009183
+Train source3 iter: 80 [(75%)]	Loss: 0.161734	RUL_Loss: 0.126519	mmd_Loss: 0.023943	l1_Loss: 0.011308
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.100629	RUL_Loss: 0.079589	mmd_Loss: 0.015026	l1_Loss: 0.006023
+Train source2 iter: 90 [(85%)]	Loss: 0.057130	RUL_Loss: 0.031127	mmd_Loss: 0.016891	l1_Loss: 0.009123
+Train source3 iter: 90 [(85%)]	Loss: 0.158076	RUL_Loss: 0.124584	mmd_Loss: 0.022771	l1_Loss: 0.010735
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.104256	RUL_Loss: 0.083207	mmd_Loss: 0.014845	l1_Loss: 0.006208
+Train source2 iter: 100 [(94%)]	Loss: 0.056036	RUL_Loss: 0.032839	mmd_Loss: 0.014361	l1_Loss: 0.008840
+Train source3 iter: 100 [(94%)]	Loss: 0.149411	RUL_Loss: 0.116354	mmd_Loss: 0.022437	l1_Loss: 0.010624
+
+
+Train epochs:4.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.068137	RUL_Loss: 0.057993	mmd_Loss: 0.014758	l1_Loss: 0.008318
+Train source2 iter: 10 [(9%)]	Loss: 0.041115	RUL_Loss: 0.028508	mmd_Loss: 0.017368	l1_Loss: 0.011312
+Train source3 iter: 10 [(9%)]	Loss: 0.118415	RUL_Loss: 0.104888	mmd_Loss: 0.021504	l1_Loss: 0.009268
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.070893	RUL_Loss: 0.055756	mmd_Loss: 0.013506	l1_Loss: 0.007039
+Train source2 iter: 20 [(19%)]	Loss: 0.042675	RUL_Loss: 0.025801	mmd_Loss: 0.014185	l1_Loss: 0.008718
+Train source3 iter: 20 [(19%)]	Loss: 0.122074	RUL_Loss: 0.100381	mmd_Loss: 0.020545	l1_Loss: 0.008898
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.067152	RUL_Loss: 0.049763	mmd_Loss: 0.012941	l1_Loss: 0.006628
+Train source2 iter: 30 [(28%)]	Loss: 0.046920	RUL_Loss: 0.023779	mmd_Loss: 0.016834	l1_Loss: 0.009209
+Train source3 iter: 30 [(28%)]	Loss: 0.132375	RUL_Loss: 0.104583	mmd_Loss: 0.021092	l1_Loss: 0.010185
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.074324	RUL_Loss: 0.054586	mmd_Loss: 0.014270	l1_Loss: 0.006396
+Train source2 iter: 40 [(38%)]	Loss: 0.052915	RUL_Loss: 0.028825	mmd_Loss: 0.016060	l1_Loss: 0.009163
+Train source3 iter: 40 [(38%)]	Loss: 0.131144	RUL_Loss: 0.100627	mmd_Loss: 0.021907	l1_Loss: 0.010045
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.072401	RUL_Loss: 0.052765	mmd_Loss: 0.013280	l1_Loss: 0.006710
+Train source2 iter: 50 [(47%)]	Loss: 0.055367	RUL_Loss: 0.031069	mmd_Loss: 0.015930	l1_Loss: 0.008807
+Train source3 iter: 50 [(47%)]	Loss: 0.133073	RUL_Loss: 0.103435	mmd_Loss: 0.020502	l1_Loss: 0.009671
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.075058	RUL_Loss: 0.053068	mmd_Loss: 0.016087	l1_Loss: 0.006057
+Train source2 iter: 60 [(57%)]	Loss: 0.051493	RUL_Loss: 0.025048	mmd_Loss: 0.017486	l1_Loss: 0.009144
+Train source3 iter: 60 [(57%)]	Loss: 0.128161	RUL_Loss: 0.098688	mmd_Loss: 0.020443	l1_Loss: 0.009237
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.074870	RUL_Loss: 0.053357	mmd_Loss: 0.015041	l1_Loss: 0.006531
+Train source2 iter: 70 [(66%)]	Loss: 0.051460	RUL_Loss: 0.027703	mmd_Loss: 0.014391	l1_Loss: 0.009430
+Train source3 iter: 70 [(66%)]	Loss: 0.134874	RUL_Loss: 0.104311	mmd_Loss: 0.021054	l1_Loss: 0.009592
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.074304	RUL_Loss: 0.053677	mmd_Loss: 0.014347	l1_Loss: 0.006303
+Train source2 iter: 80 [(75%)]	Loss: 0.054183	RUL_Loss: 0.025706	mmd_Loss: 0.019400	l1_Loss: 0.009106
+Train source3 iter: 80 [(75%)]	Loss: 0.135334	RUL_Loss: 0.107276	mmd_Loss: 0.019010	l1_Loss: 0.009077
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.072430	RUL_Loss: 0.052453	mmd_Loss: 0.013684	l1_Loss: 0.006302
+Train source2 iter: 90 [(85%)]	Loss: 0.050683	RUL_Loss: 0.026614	mmd_Loss: 0.014969	l1_Loss: 0.009111
+Train source3 iter: 90 [(85%)]	Loss: 0.132669	RUL_Loss: 0.101354	mmd_Loss: 0.021913	l1_Loss: 0.009414
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.072676	RUL_Loss: 0.053333	mmd_Loss: 0.012913	l1_Loss: 0.006432
+Train source2 iter: 100 [(94%)]	Loss: 0.052581	RUL_Loss: 0.027611	mmd_Loss: 0.016279	l1_Loss: 0.008695
+Train source3 iter: 100 [(94%)]	Loss: 0.131127	RUL_Loss: 0.100246	mmd_Loss: 0.021218	l1_Loss: 0.009668
+
+
+Train epochs:5.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.059888	RUL_Loss: 0.051135	mmd_Loss: 0.014412	l1_Loss: 0.005501
+Train source2 iter: 10 [(9%)]	Loss: 0.042119	RUL_Loss: 0.030689	mmd_Loss: 0.017949	l1_Loss: 0.008056
+Train source3 iter: 10 [(9%)]	Loss: 0.107858	RUL_Loss: 0.094828	mmd_Loss: 0.021422	l1_Loss: 0.008221
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.063835	RUL_Loss: 0.048230	mmd_Loss: 0.015404	l1_Loss: 0.005777
+Train source2 iter: 20 [(19%)]	Loss: 0.049311	RUL_Loss: 0.029254	mmd_Loss: 0.019365	l1_Loss: 0.007857
+Train source3 iter: 20 [(19%)]	Loss: 0.120168	RUL_Loss: 0.096163	mmd_Loss: 0.024500	l1_Loss: 0.008082
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.065907	RUL_Loss: 0.048112	mmd_Loss: 0.014268	l1_Loss: 0.005758
+Train source2 iter: 30 [(28%)]	Loss: 0.052442	RUL_Loss: 0.027474	mmd_Loss: 0.020195	l1_Loss: 0.007904
+Train source3 iter: 30 [(28%)]	Loss: 0.111206	RUL_Loss: 0.087563	mmd_Loss: 0.018840	l1_Loss: 0.007769
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.065293	RUL_Loss: 0.046108	mmd_Loss: 0.014365	l1_Loss: 0.005722
+Train source2 iter: 40 [(38%)]	Loss: 0.046499	RUL_Loss: 0.025234	mmd_Loss: 0.014789	l1_Loss: 0.007475
+Train source3 iter: 40 [(38%)]	Loss: 0.119032	RUL_Loss: 0.091403	mmd_Loss: 0.021255	l1_Loss: 0.007673
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.070033	RUL_Loss: 0.051075	mmd_Loss: 0.013725	l1_Loss: 0.005575
+Train source2 iter: 50 [(47%)]	Loss: 0.052270	RUL_Loss: 0.030387	mmd_Loss: 0.014977	l1_Loss: 0.007301
+Train source3 iter: 50 [(47%)]	Loss: 0.124146	RUL_Loss: 0.095402	mmd_Loss: 0.021342	l1_Loss: 0.007921
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.065149	RUL_Loss: 0.047265	mmd_Loss: 0.012011	l1_Loss: 0.005999
+Train source2 iter: 60 [(57%)]	Loss: 0.055454	RUL_Loss: 0.029300	mmd_Loss: 0.018760	l1_Loss: 0.007577
+Train source3 iter: 60 [(57%)]	Loss: 0.118474	RUL_Loss: 0.089586	mmd_Loss: 0.020429	l1_Loss: 0.008662
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.062296	RUL_Loss: 0.044131	mmd_Loss: 0.012827	l1_Loss: 0.005387
+Train source2 iter: 70 [(66%)]	Loss: 0.051313	RUL_Loss: 0.027559	mmd_Loss: 0.016546	l1_Loss: 0.007273
+Train source3 iter: 70 [(66%)]	Loss: 0.119571	RUL_Loss: 0.089728	mmd_Loss: 0.021551	l1_Loss: 0.008373
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.066416	RUL_Loss: 0.046284	mmd_Loss: 0.013956	l1_Loss: 0.006198
+Train source2 iter: 80 [(75%)]	Loss: 0.053157	RUL_Loss: 0.028715	mmd_Loss: 0.017561	l1_Loss: 0.006907
+Train source3 iter: 80 [(75%)]	Loss: 0.125291	RUL_Loss: 0.094362	mmd_Loss: 0.022947	l1_Loss: 0.008015
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.062919	RUL_Loss: 0.043137	mmd_Loss: 0.014172	l1_Loss: 0.005618
+Train source2 iter: 90 [(85%)]	Loss: 0.052282	RUL_Loss: 0.028685	mmd_Loss: 0.016206	l1_Loss: 0.007400
+Train source3 iter: 90 [(85%)]	Loss: 0.126003	RUL_Loss: 0.097632	mmd_Loss: 0.020499	l1_Loss: 0.007883
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.066261	RUL_Loss: 0.046427	mmd_Loss: 0.013993	l1_Loss: 0.005844
+Train source2 iter: 100 [(94%)]	Loss: 0.056781	RUL_Loss: 0.030486	mmd_Loss: 0.019166	l1_Loss: 0.007133
+Train source3 iter: 100 [(94%)]	Loss: 0.124696	RUL_Loss: 0.093390	mmd_Loss: 0.022640	l1_Loss: 0.008671
+
+
+Train epochs:6.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.053007	RUL_Loss: 0.044630	mmd_Loss: 0.013939	l1_Loss: 0.005119
+Train source2 iter: 10 [(9%)]	Loss: 0.040826	RUL_Loss: 0.029516	mmd_Loss: 0.018377	l1_Loss: 0.007352
+Train source3 iter: 10 [(9%)]	Loss: 0.096379	RUL_Loss: 0.085518	mmd_Loss: 0.017372	l1_Loss: 0.007335
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.055222	RUL_Loss: 0.041330	mmd_Loss: 0.013607	l1_Loss: 0.005248
+Train source2 iter: 20 [(19%)]	Loss: 0.045223	RUL_Loss: 0.025607	mmd_Loss: 0.020315	l1_Loss: 0.006309
+Train source3 iter: 20 [(19%)]	Loss: 0.105289	RUL_Loss: 0.084129	mmd_Loss: 0.021816	l1_Loss: 0.006903
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.058065	RUL_Loss: 0.039917	mmd_Loss: 0.014749	l1_Loss: 0.005675
+Train source2 iter: 30 [(28%)]	Loss: 0.048505	RUL_Loss: 0.028919	mmd_Loss: 0.015826	l1_Loss: 0.006217
+Train source3 iter: 30 [(28%)]	Loss: 0.102195	RUL_Loss: 0.077865	mmd_Loss: 0.019999	l1_Loss: 0.007382
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.054927	RUL_Loss: 0.038579	mmd_Loss: 0.011805	l1_Loss: 0.005311
+Train source2 iter: 40 [(38%)]	Loss: 0.051253	RUL_Loss: 0.031189	mmd_Loss: 0.015016	l1_Loss: 0.005992
+Train source3 iter: 40 [(38%)]	Loss: 0.105187	RUL_Loss: 0.078430	mmd_Loss: 0.021042	l1_Loss: 0.006973
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.062059	RUL_Loss: 0.044681	mmd_Loss: 0.012179	l1_Loss: 0.005512
+Train source2 iter: 50 [(47%)]	Loss: 0.053294	RUL_Loss: 0.029412	mmd_Loss: 0.017860	l1_Loss: 0.006453
+Train source3 iter: 50 [(47%)]	Loss: 0.111640	RUL_Loss: 0.084979	mmd_Loss: 0.020190	l1_Loss: 0.006952
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.055799	RUL_Loss: 0.038517	mmd_Loss: 0.011995	l1_Loss: 0.005407
+Train source2 iter: 60 [(57%)]	Loss: 0.057178	RUL_Loss: 0.032654	mmd_Loss: 0.018614	l1_Loss: 0.006081
+Train source3 iter: 60 [(57%)]	Loss: 0.105399	RUL_Loss: 0.078232	mmd_Loss: 0.020716	l1_Loss: 0.006641
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.059031	RUL_Loss: 0.041588	mmd_Loss: 0.012411	l1_Loss: 0.005079
+Train source2 iter: 70 [(66%)]	Loss: 0.051120	RUL_Loss: 0.028543	mmd_Loss: 0.016252	l1_Loss: 0.006387
+Train source3 iter: 70 [(66%)]	Loss: 0.106550	RUL_Loss: 0.081514	mmd_Loss: 0.018144	l1_Loss: 0.006960
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.057965	RUL_Loss: 0.041423	mmd_Loss: 0.011588	l1_Loss: 0.004971
+Train source2 iter: 80 [(75%)]	Loss: 0.049876	RUL_Loss: 0.027301	mmd_Loss: 0.016256	l1_Loss: 0.006343
+Train source3 iter: 80 [(75%)]	Loss: 0.107658	RUL_Loss: 0.080833	mmd_Loss: 0.019555	l1_Loss: 0.007298
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.060521	RUL_Loss: 0.040992	mmd_Loss: 0.014425	l1_Loss: 0.005112
+Train source2 iter: 90 [(85%)]	Loss: 0.050011	RUL_Loss: 0.027858	mmd_Loss: 0.015699	l1_Loss: 0.006464
+Train source3 iter: 90 [(85%)]	Loss: 0.110569	RUL_Loss: 0.083646	mmd_Loss: 0.019923	l1_Loss: 0.007012
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.057494	RUL_Loss: 0.039728	mmd_Loss: 0.012676	l1_Loss: 0.005093
+Train source2 iter: 100 [(94%)]	Loss: 0.049678	RUL_Loss: 0.028617	mmd_Loss: 0.014474	l1_Loss: 0.006591
+Train source3 iter: 100 [(94%)]	Loss: 0.120037	RUL_Loss: 0.092566	mmd_Loss: 0.019812	l1_Loss: 0.007664
+
+
+Train epochs:7.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.050164	RUL_Loss: 0.042126	mmd_Loss: 0.013959	l1_Loss: 0.004327
+Train source2 iter: 10 [(9%)]	Loss: 0.040550	RUL_Loss: 0.030563	mmd_Loss: 0.017687	l1_Loss: 0.005032
+Train source3 iter: 10 [(9%)]	Loss: 0.091105	RUL_Loss: 0.079315	mmd_Loss: 0.020543	l1_Loss: 0.006279
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.058022	RUL_Loss: 0.046100	mmd_Loss: 0.011570	l1_Loss: 0.004611
+Train source2 iter: 20 [(19%)]	Loss: 0.044667	RUL_Loss: 0.028082	mmd_Loss: 0.017421	l1_Loss: 0.005090
+Train source3 iter: 20 [(19%)]	Loss: 0.100697	RUL_Loss: 0.082589	mmd_Loss: 0.018517	l1_Loss: 0.006060
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.056438	RUL_Loss: 0.042167	mmd_Loss: 0.011619	l1_Loss: 0.004443
+Train source2 iter: 30 [(28%)]	Loss: 0.042988	RUL_Loss: 0.025520	mmd_Loss: 0.014476	l1_Loss: 0.005182
+Train source3 iter: 30 [(28%)]	Loss: 0.101031	RUL_Loss: 0.075513	mmd_Loss: 0.022431	l1_Loss: 0.006287
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.059320	RUL_Loss: 0.043629	mmd_Loss: 0.011664	l1_Loss: 0.004765
+Train source2 iter: 40 [(38%)]	Loss: 0.049502	RUL_Loss: 0.029205	mmd_Loss: 0.015979	l1_Loss: 0.005272
+Train source3 iter: 40 [(38%)]	Loss: 0.105282	RUL_Loss: 0.079293	mmd_Loss: 0.021414	l1_Loss: 0.005798
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.064868	RUL_Loss: 0.047250	mmd_Loss: 0.013408	l1_Loss: 0.004528
+Train source2 iter: 50 [(47%)]	Loss: 0.050686	RUL_Loss: 0.030936	mmd_Loss: 0.014607	l1_Loss: 0.005500
+Train source3 iter: 50 [(47%)]	Loss: 0.109757	RUL_Loss: 0.083223	mmd_Loss: 0.020797	l1_Loss: 0.006216
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.058216	RUL_Loss: 0.040194	mmd_Loss: 0.013822	l1_Loss: 0.004327
+Train source2 iter: 60 [(57%)]	Loss: 0.048299	RUL_Loss: 0.027775	mmd_Loss: 0.015646	l1_Loss: 0.005021
+Train source3 iter: 60 [(57%)]	Loss: 0.104047	RUL_Loss: 0.077723	mmd_Loss: 0.019834	l1_Loss: 0.006675
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.054507	RUL_Loss: 0.038452	mmd_Loss: 0.011806	l1_Loss: 0.004292
+Train source2 iter: 70 [(66%)]	Loss: 0.052171	RUL_Loss: 0.028432	mmd_Loss: 0.018036	l1_Loss: 0.005767
+Train source3 iter: 70 [(66%)]	Loss: 0.099781	RUL_Loss: 0.074210	mmd_Loss: 0.019719	l1_Loss: 0.005921
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.057924	RUL_Loss: 0.040802	mmd_Loss: 0.012814	l1_Loss: 0.004326
+Train source2 iter: 80 [(75%)]	Loss: 0.053641	RUL_Loss: 0.031624	mmd_Loss: 0.016951	l1_Loss: 0.005090
+Train source3 iter: 80 [(75%)]	Loss: 0.103311	RUL_Loss: 0.078636	mmd_Loss: 0.018796	l1_Loss: 0.005905
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.053972	RUL_Loss: 0.037279	mmd_Loss: 0.012453	l1_Loss: 0.004247
+Train source2 iter: 90 [(85%)]	Loss: 0.044938	RUL_Loss: 0.026285	mmd_Loss: 0.013236	l1_Loss: 0.005425
+Train source3 iter: 90 [(85%)]	Loss: 0.104595	RUL_Loss: 0.078092	mmd_Loss: 0.019956	l1_Loss: 0.006557
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.062611	RUL_Loss: 0.042786	mmd_Loss: 0.015194	l1_Loss: 0.004634
+Train source2 iter: 100 [(94%)]	Loss: 0.050730	RUL_Loss: 0.029085	mmd_Loss: 0.016424	l1_Loss: 0.005224
+Train source3 iter: 100 [(94%)]	Loss: 0.102703	RUL_Loss: 0.078330	mmd_Loss: 0.017921	l1_Loss: 0.006456
+
+
+Train epochs:8.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.045368	RUL_Loss: 0.038110	mmd_Loss: 0.011114	l1_Loss: 0.005398
+Train source2 iter: 10 [(9%)]	Loss: 0.037909	RUL_Loss: 0.027369	mmd_Loss: 0.017142	l1_Loss: 0.006836
+Train source3 iter: 10 [(9%)]	Loss: 0.088369	RUL_Loss: 0.076589	mmd_Loss: 0.020772	l1_Loss: 0.006026
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.051406	RUL_Loss: 0.039131	mmd_Loss: 0.012034	l1_Loss: 0.004626
+Train source2 iter: 20 [(19%)]	Loss: 0.040252	RUL_Loss: 0.026195	mmd_Loss: 0.013153	l1_Loss: 0.005926
+Train source3 iter: 20 [(19%)]	Loss: 0.094532	RUL_Loss: 0.073835	mmd_Loss: 0.021956	l1_Loss: 0.006135
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.055850	RUL_Loss: 0.041355	mmd_Loss: 0.011198	l1_Loss: 0.005115
+Train source2 iter: 30 [(28%)]	Loss: 0.045483	RUL_Loss: 0.026397	mmd_Loss: 0.015410	l1_Loss: 0.006069
+Train source3 iter: 30 [(28%)]	Loss: 0.107472	RUL_Loss: 0.082054	mmd_Loss: 0.022088	l1_Loss: 0.006517
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.050491	RUL_Loss: 0.036491	mmd_Loss: 0.009872	l1_Loss: 0.004786
+Train source2 iter: 40 [(38%)]	Loss: 0.043387	RUL_Loss: 0.026821	mmd_Loss: 0.011602	l1_Loss: 0.005744
+Train source3 iter: 40 [(38%)]	Loss: 0.102770	RUL_Loss: 0.074341	mmd_Loss: 0.023065	l1_Loss: 0.006701
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.052932	RUL_Loss: 0.038673	mmd_Loss: 0.009615	l1_Loss: 0.004902
+Train source2 iter: 50 [(47%)]	Loss: 0.044105	RUL_Loss: 0.024906	mmd_Loss: 0.013665	l1_Loss: 0.005881
+Train source3 iter: 50 [(47%)]	Loss: 0.098419	RUL_Loss: 0.072316	mmd_Loss: 0.020651	l1_Loss: 0.005923
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.056852	RUL_Loss: 0.039376	mmd_Loss: 0.012471	l1_Loss: 0.005127
+Train source2 iter: 60 [(57%)]	Loss: 0.048037	RUL_Loss: 0.028611	mmd_Loss: 0.013479	l1_Loss: 0.006083
+Train source3 iter: 60 [(57%)]	Loss: 0.103483	RUL_Loss: 0.075082	mmd_Loss: 0.022138	l1_Loss: 0.006462
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.056012	RUL_Loss: 0.039460	mmd_Loss: 0.011513	l1_Loss: 0.005084
+Train source2 iter: 70 [(66%)]	Loss: 0.045835	RUL_Loss: 0.024623	mmd_Loss: 0.015359	l1_Loss: 0.005910
+Train source3 iter: 70 [(66%)]	Loss: 0.100826	RUL_Loss: 0.073692	mmd_Loss: 0.020790	l1_Loss: 0.006418
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.056839	RUL_Loss: 0.041198	mmd_Loss: 0.011159	l1_Loss: 0.004498
+Train source2 iter: 80 [(75%)]	Loss: 0.049185	RUL_Loss: 0.029248	mmd_Loss: 0.014352	l1_Loss: 0.005606
+Train source3 iter: 80 [(75%)]	Loss: 0.102462	RUL_Loss: 0.078298	mmd_Loss: 0.017991	l1_Loss: 0.006198
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.053841	RUL_Loss: 0.037183	mmd_Loss: 0.012110	l1_Loss: 0.004554
+Train source2 iter: 90 [(85%)]	Loss: 0.049938	RUL_Loss: 0.026943	mmd_Loss: 0.017217	l1_Loss: 0.005787
+Train source3 iter: 90 [(85%)]	Loss: 0.099666	RUL_Loss: 0.074360	mmd_Loss: 0.019187	l1_Loss: 0.006129
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.058129	RUL_Loss: 0.040110	mmd_Loss: 0.012806	l1_Loss: 0.005216
+Train source2 iter: 100 [(94%)]	Loss: 0.042904	RUL_Loss: 0.024350	mmd_Loss: 0.013310	l1_Loss: 0.005247
+Train source3 iter: 100 [(94%)]	Loss: 0.107183	RUL_Loss: 0.078391	mmd_Loss: 0.022763	l1_Loss: 0.006033
+
+
+Train epochs:9.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.050047	RUL_Loss: 0.043478	mmd_Loss: 0.010839	l1_Loss: 0.004104
+Train source2 iter: 10 [(9%)]	Loss: 0.035750	RUL_Loss: 0.027576	mmd_Loss: 0.014073	l1_Loss: 0.004523
+Train source3 iter: 10 [(9%)]	Loss: 0.083346	RUL_Loss: 0.073466	mmd_Loss: 0.017407	l1_Loss: 0.005067
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.049700	RUL_Loss: 0.037737	mmd_Loss: 0.011952	l1_Loss: 0.004285
+Train source2 iter: 20 [(19%)]	Loss: 0.041470	RUL_Loss: 0.027366	mmd_Loss: 0.014096	l1_Loss: 0.005047
+Train source3 iter: 20 [(19%)]	Loss: 0.084006	RUL_Loss: 0.066449	mmd_Loss: 0.018051	l1_Loss: 0.005779
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.051362	RUL_Loss: 0.038479	mmd_Loss: 0.010132	l1_Loss: 0.004367
+Train source2 iter: 30 [(28%)]	Loss: 0.045401	RUL_Loss: 0.027305	mmd_Loss: 0.015634	l1_Loss: 0.004732
+Train source3 iter: 30 [(28%)]	Loss: 0.090565	RUL_Loss: 0.069491	mmd_Loss: 0.018293	l1_Loss: 0.005425
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.050396	RUL_Loss: 0.036315	mmd_Loss: 0.010201	l1_Loss: 0.004542
+Train source2 iter: 40 [(38%)]	Loss: 0.052469	RUL_Loss: 0.030435	mmd_Loss: 0.017850	l1_Loss: 0.005220
+Train source3 iter: 40 [(38%)]	Loss: 0.098730	RUL_Loss: 0.073225	mmd_Loss: 0.021361	l1_Loss: 0.005344
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.052086	RUL_Loss: 0.036886	mmd_Loss: 0.010927	l1_Loss: 0.004548
+Train source2 iter: 50 [(47%)]	Loss: 0.048720	RUL_Loss: 0.029083	mmd_Loss: 0.014797	l1_Loss: 0.005194
+Train source3 iter: 50 [(47%)]	Loss: 0.095728	RUL_Loss: 0.071362	mmd_Loss: 0.019314	l1_Loss: 0.005491
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.050395	RUL_Loss: 0.035612	mmd_Loss: 0.010321	l1_Loss: 0.004565
+Train source2 iter: 60 [(57%)]	Loss: 0.049053	RUL_Loss: 0.027629	mmd_Loss: 0.016443	l1_Loss: 0.005131
+Train source3 iter: 60 [(57%)]	Loss: 0.095071	RUL_Loss: 0.071360	mmd_Loss: 0.018833	l1_Loss: 0.005044
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.052280	RUL_Loss: 0.037251	mmd_Loss: 0.010344	l1_Loss: 0.004726
+Train source2 iter: 70 [(66%)]	Loss: 0.044849	RUL_Loss: 0.024369	mmd_Loss: 0.015789	l1_Loss: 0.004747
+Train source3 iter: 70 [(66%)]	Loss: 0.093005	RUL_Loss: 0.070965	mmd_Loss: 0.016611	l1_Loss: 0.005489
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.053454	RUL_Loss: 0.037839	mmd_Loss: 0.010989	l1_Loss: 0.004643
+Train source2 iter: 80 [(75%)]	Loss: 0.044933	RUL_Loss: 0.025356	mmd_Loss: 0.014370	l1_Loss: 0.005229
+Train source3 iter: 80 [(75%)]	Loss: 0.095916	RUL_Loss: 0.071184	mmd_Loss: 0.019353	l1_Loss: 0.005405
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.048851	RUL_Loss: 0.034953	mmd_Loss: 0.009447	l1_Loss: 0.004458
+Train source2 iter: 90 [(85%)]	Loss: 0.048248	RUL_Loss: 0.028576	mmd_Loss: 0.014682	l1_Loss: 0.004999
+Train source3 iter: 90 [(85%)]	Loss: 0.097523	RUL_Loss: 0.073974	mmd_Loss: 0.018425	l1_Loss: 0.005134
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.049249	RUL_Loss: 0.033599	mmd_Loss: 0.011188	l1_Loss: 0.004465
+Train source2 iter: 100 [(94%)]	Loss: 0.047258	RUL_Loss: 0.027347	mmd_Loss: 0.015096	l1_Loss: 0.004818
+Train source3 iter: 100 [(94%)]	Loss: 0.100358	RUL_Loss: 0.074167	mmd_Loss: 0.020512	l1_Loss: 0.005684
+
+
+Train epochs:10.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.046825	RUL_Loss: 0.039754	mmd_Loss: 0.010096	l1_Loss: 0.005991
+Train source2 iter: 10 [(9%)]	Loss: 0.037573	RUL_Loss: 0.028257	mmd_Loss: 0.015246	l1_Loss: 0.005947
+Train source3 iter: 10 [(9%)]	Loss: 0.076295	RUL_Loss: 0.065729	mmd_Loss: 0.018891	l1_Loss: 0.005146
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.048380	RUL_Loss: 0.036850	mmd_Loss: 0.011045	l1_Loss: 0.004605
+Train source2 iter: 20 [(19%)]	Loss: 0.042007	RUL_Loss: 0.027613	mmd_Loss: 0.014361	l1_Loss: 0.005176
+Train source3 iter: 20 [(19%)]	Loss: 0.087280	RUL_Loss: 0.069767	mmd_Loss: 0.017702	l1_Loss: 0.006067
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.053277	RUL_Loss: 0.038886	mmd_Loss: 0.011240	l1_Loss: 0.004956
+Train source2 iter: 30 [(28%)]	Loss: 0.042114	RUL_Loss: 0.026097	mmd_Loss: 0.012617	l1_Loss: 0.005408
+Train source3 iter: 30 [(28%)]	Loss: 0.090209	RUL_Loss: 0.069040	mmd_Loss: 0.018478	l1_Loss: 0.005345
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.045499	RUL_Loss: 0.032062	mmd_Loss: 0.009552	l1_Loss: 0.004517
+Train source2 iter: 40 [(38%)]	Loss: 0.045961	RUL_Loss: 0.025833	mmd_Loss: 0.015683	l1_Loss: 0.005391
+Train source3 iter: 40 [(38%)]	Loss: 0.092259	RUL_Loss: 0.069874	mmd_Loss: 0.017673	l1_Loss: 0.005766
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.048536	RUL_Loss: 0.033530	mmd_Loss: 0.010161	l1_Loss: 0.005115
+Train source2 iter: 50 [(47%)]	Loss: 0.046034	RUL_Loss: 0.026275	mmd_Loss: 0.014356	l1_Loss: 0.005760
+Train source3 iter: 50 [(47%)]	Loss: 0.094517	RUL_Loss: 0.068684	mmd_Loss: 0.020351	l1_Loss: 0.005948
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.051954	RUL_Loss: 0.036252	mmd_Loss: 0.011352	l1_Loss: 0.004460
+Train source2 iter: 60 [(57%)]	Loss: 0.050151	RUL_Loss: 0.024999	mmd_Loss: 0.019907	l1_Loss: 0.005421
+Train source3 iter: 60 [(57%)]	Loss: 0.090293	RUL_Loss: 0.067328	mmd_Loss: 0.017368	l1_Loss: 0.005757
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.056728	RUL_Loss: 0.040468	mmd_Loss: 0.010622	l1_Loss: 0.005683
+Train source2 iter: 70 [(66%)]	Loss: 0.045081	RUL_Loss: 0.026099	mmd_Loss: 0.013403	l1_Loss: 0.005630
+Train source3 iter: 70 [(66%)]	Loss: 0.097353	RUL_Loss: 0.073588	mmd_Loss: 0.018043	l1_Loss: 0.005786
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.051955	RUL_Loss: 0.035096	mmd_Loss: 0.012062	l1_Loss: 0.004814
+Train source2 iter: 80 [(75%)]	Loss: 0.045648	RUL_Loss: 0.027738	mmd_Loss: 0.012288	l1_Loss: 0.005641
+Train source3 iter: 80 [(75%)]	Loss: 0.091911	RUL_Loss: 0.069184	mmd_Loss: 0.017185	l1_Loss: 0.005566
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.050073	RUL_Loss: 0.035056	mmd_Loss: 0.010244	l1_Loss: 0.004779
+Train source2 iter: 90 [(85%)]	Loss: 0.045303	RUL_Loss: 0.025223	mmd_Loss: 0.014910	l1_Loss: 0.005178
+Train source3 iter: 90 [(85%)]	Loss: 0.094221	RUL_Loss: 0.069985	mmd_Loss: 0.018340	l1_Loss: 0.005906
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.054725	RUL_Loss: 0.037702	mmd_Loss: 0.011933	l1_Loss: 0.005092
+Train source2 iter: 100 [(94%)]	Loss: 0.043792	RUL_Loss: 0.025544	mmd_Loss: 0.013199	l1_Loss: 0.005052
+Train source3 iter: 100 [(94%)]	Loss: 0.091849	RUL_Loss: 0.067815	mmd_Loss: 0.018601	l1_Loss: 0.005437
+
+
+Train epochs:11.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.041872	RUL_Loss: 0.035192	mmd_Loss: 0.011322	l1_Loss: 0.003874
+Train source2 iter: 10 [(9%)]	Loss: 0.038071	RUL_Loss: 0.030374	mmd_Loss: 0.013755	l1_Loss: 0.003756
+Train source3 iter: 10 [(9%)]	Loss: 0.079999	RUL_Loss: 0.067982	mmd_Loss: 0.022089	l1_Loss: 0.005249
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.048314	RUL_Loss: 0.038478	mmd_Loss: 0.009544	l1_Loss: 0.003806
+Train source2 iter: 20 [(19%)]	Loss: 0.041932	RUL_Loss: 0.030169	mmd_Loss: 0.011936	l1_Loss: 0.004030
+Train source3 iter: 20 [(19%)]	Loss: 0.086453	RUL_Loss: 0.068252	mmd_Loss: 0.019768	l1_Loss: 0.004936
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.052473	RUL_Loss: 0.038566	mmd_Loss: 0.011925	l1_Loss: 0.003726
+Train source2 iter: 30 [(28%)]	Loss: 0.038676	RUL_Loss: 0.024839	mmd_Loss: 0.011276	l1_Loss: 0.004297
+Train source3 iter: 30 [(28%)]	Loss: 0.090678	RUL_Loss: 0.069969	mmd_Loss: 0.018070	l1_Loss: 0.005235
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.051963	RUL_Loss: 0.039151	mmd_Loss: 0.009711	l1_Loss: 0.003704
+Train source2 iter: 40 [(38%)]	Loss: 0.041850	RUL_Loss: 0.025280	mmd_Loss: 0.013313	l1_Loss: 0.004037
+Train source3 iter: 40 [(38%)]	Loss: 0.093573	RUL_Loss: 0.071997	mmd_Loss: 0.018037	l1_Loss: 0.004553
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.053631	RUL_Loss: 0.037712	mmd_Loss: 0.012347	l1_Loss: 0.003859
+Train source2 iter: 50 [(47%)]	Loss: 0.042560	RUL_Loss: 0.025863	mmd_Loss: 0.012906	l1_Loss: 0.004093
+Train source3 iter: 50 [(47%)]	Loss: 0.090533	RUL_Loss: 0.068481	mmd_Loss: 0.017385	l1_Loss: 0.005064
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.054313	RUL_Loss: 0.036244	mmd_Loss: 0.014357	l1_Loss: 0.003838
+Train source2 iter: 60 [(57%)]	Loss: 0.044809	RUL_Loss: 0.025580	mmd_Loss: 0.015177	l1_Loss: 0.004186
+Train source3 iter: 60 [(57%)]	Loss: 0.094573	RUL_Loss: 0.070311	mmd_Loss: 0.019467	l1_Loss: 0.004965
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.050541	RUL_Loss: 0.034939	mmd_Loss: 0.011839	l1_Loss: 0.003806
+Train source2 iter: 70 [(66%)]	Loss: 0.042758	RUL_Loss: 0.026585	mmd_Loss: 0.012260	l1_Loss: 0.003957
+Train source3 iter: 70 [(66%)]	Loss: 0.086010	RUL_Loss: 0.061722	mmd_Loss: 0.019270	l1_Loss: 0.005084
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.052861	RUL_Loss: 0.039285	mmd_Loss: 0.009822	l1_Loss: 0.003768
+Train source2 iter: 80 [(75%)]	Loss: 0.042921	RUL_Loss: 0.026016	mmd_Loss: 0.012641	l1_Loss: 0.004282
+Train source3 iter: 80 [(75%)]	Loss: 0.091415	RUL_Loss: 0.067283	mmd_Loss: 0.019506	l1_Loss: 0.004652
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.049045	RUL_Loss: 0.034269	mmd_Loss: 0.010759	l1_Loss: 0.004023
+Train source2 iter: 90 [(85%)]	Loss: 0.044076	RUL_Loss: 0.027008	mmd_Loss: 0.012872	l1_Loss: 0.004203
+Train source3 iter: 90 [(85%)]	Loss: 0.092289	RUL_Loss: 0.069637	mmd_Loss: 0.017661	l1_Loss: 0.005000
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.052904	RUL_Loss: 0.036461	mmd_Loss: 0.012538	l1_Loss: 0.003908
+Train source2 iter: 100 [(94%)]	Loss: 0.043582	RUL_Loss: 0.029678	mmd_Loss: 0.010139	l1_Loss: 0.003767
+Train source3 iter: 100 [(94%)]	Loss: 0.092175	RUL_Loss: 0.066690	mmd_Loss: 0.020739	l1_Loss: 0.004750
+
+
+Train epochs:12.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.040522	RUL_Loss: 0.033827	mmd_Loss: 0.010744	l1_Loss: 0.004486
+Train source2 iter: 10 [(9%)]	Loss: 0.034515	RUL_Loss: 0.026988	mmd_Loss: 0.011403	l1_Loss: 0.005720
+Train source3 iter: 10 [(9%)]	Loss: 0.075883	RUL_Loss: 0.064865	mmd_Loss: 0.019599	l1_Loss: 0.005467
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.047931	RUL_Loss: 0.036878	mmd_Loss: 0.010070	l1_Loss: 0.004932
+Train source2 iter: 20 [(19%)]	Loss: 0.035971	RUL_Loss: 0.023644	mmd_Loss: 0.011295	l1_Loss: 0.005436
+Train source3 iter: 20 [(19%)]	Loss: 0.079864	RUL_Loss: 0.062302	mmd_Loss: 0.018233	l1_Loss: 0.005603
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.044695	RUL_Loss: 0.032862	mmd_Loss: 0.009233	l1_Loss: 0.004083
+Train source2 iter: 30 [(28%)]	Loss: 0.038048	RUL_Loss: 0.022808	mmd_Loss: 0.012146	l1_Loss: 0.005005
+Train source3 iter: 30 [(28%)]	Loss: 0.087510	RUL_Loss: 0.065924	mmd_Loss: 0.018162	l1_Loss: 0.006131
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.051555	RUL_Loss: 0.035757	mmd_Loss: 0.012112	l1_Loss: 0.004429
+Train source2 iter: 40 [(38%)]	Loss: 0.043167	RUL_Loss: 0.024865	mmd_Loss: 0.013376	l1_Loss: 0.005787
+Train source3 iter: 40 [(38%)]	Loss: 0.086280	RUL_Loss: 0.065092	mmd_Loss: 0.016779	l1_Loss: 0.005406
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.051461	RUL_Loss: 0.037023	mmd_Loss: 0.010146	l1_Loss: 0.004552
+Train source2 iter: 50 [(47%)]	Loss: 0.041223	RUL_Loss: 0.024684	mmd_Loss: 0.011381	l1_Loss: 0.005455
+Train source3 iter: 50 [(47%)]	Loss: 0.088381	RUL_Loss: 0.066451	mmd_Loss: 0.016854	l1_Loss: 0.005472
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.051154	RUL_Loss: 0.035727	mmd_Loss: 0.010688	l1_Loss: 0.004847
+Train source2 iter: 60 [(57%)]	Loss: 0.040528	RUL_Loss: 0.020274	mmd_Loss: 0.014885	l1_Loss: 0.005511
+Train source3 iter: 60 [(57%)]	Loss: 0.089192	RUL_Loss: 0.066662	mmd_Loss: 0.017199	l1_Loss: 0.005489
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.053497	RUL_Loss: 0.038550	mmd_Loss: 0.010194	l1_Loss: 0.004794
+Train source2 iter: 70 [(66%)]	Loss: 0.042901	RUL_Loss: 0.027883	mmd_Loss: 0.009904	l1_Loss: 0.005155
+Train source3 iter: 70 [(66%)]	Loss: 0.087474	RUL_Loss: 0.065776	mmd_Loss: 0.016085	l1_Loss: 0.005672
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.057886	RUL_Loss: 0.039290	mmd_Loss: 0.013851	l1_Loss: 0.004764
+Train source2 iter: 80 [(75%)]	Loss: 0.041477	RUL_Loss: 0.025021	mmd_Loss: 0.011140	l1_Loss: 0.005333
+Train source3 iter: 80 [(75%)]	Loss: 0.089225	RUL_Loss: 0.066994	mmd_Loss: 0.016980	l1_Loss: 0.005274
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.050707	RUL_Loss: 0.035575	mmd_Loss: 0.010738	l1_Loss: 0.004400
+Train source2 iter: 90 [(85%)]	Loss: 0.043177	RUL_Loss: 0.027545	mmd_Loss: 0.010462	l1_Loss: 0.005176
+Train source3 iter: 90 [(85%)]	Loss: 0.085673	RUL_Loss: 0.062166	mmd_Loss: 0.018212	l1_Loss: 0.005304
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.049409	RUL_Loss: 0.035215	mmd_Loss: 0.009286	l1_Loss: 0.004910
+Train source2 iter: 100 [(94%)]	Loss: 0.043919	RUL_Loss: 0.027270	mmd_Loss: 0.011238	l1_Loss: 0.005414
+Train source3 iter: 100 [(94%)]	Loss: 0.090900	RUL_Loss: 0.066719	mmd_Loss: 0.018385	l1_Loss: 0.005800
+
+
+Train epochs:13.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.046022	RUL_Loss: 0.039561	mmd_Loss: 0.010662	l1_Loss: 0.004037
+Train source2 iter: 10 [(9%)]	Loss: 0.035907	RUL_Loss: 0.025665	mmd_Loss: 0.017914	l1_Loss: 0.005386
+Train source3 iter: 10 [(9%)]	Loss: 0.073655	RUL_Loss: 0.065196	mmd_Loss: 0.013743	l1_Loss: 0.005499
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.046192	RUL_Loss: 0.036010	mmd_Loss: 0.009716	l1_Loss: 0.004103
+Train source2 iter: 20 [(19%)]	Loss: 0.036302	RUL_Loss: 0.023178	mmd_Loss: 0.012596	l1_Loss: 0.005217
+Train source3 iter: 20 [(19%)]	Loss: 0.080416	RUL_Loss: 0.065094	mmd_Loss: 0.015394	l1_Loss: 0.005402
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.047293	RUL_Loss: 0.035326	mmd_Loss: 0.009517	l1_Loss: 0.003951
+Train source2 iter: 30 [(28%)]	Loss: 0.045023	RUL_Loss: 0.028536	mmd_Loss: 0.013424	l1_Loss: 0.005131
+Train source3 iter: 30 [(28%)]	Loss: 0.082733	RUL_Loss: 0.062348	mmd_Loss: 0.017321	l1_Loss: 0.005620
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.050304	RUL_Loss: 0.036415	mmd_Loss: 0.010303	l1_Loss: 0.004239
+Train source2 iter: 40 [(38%)]	Loss: 0.042946	RUL_Loss: 0.025760	mmd_Loss: 0.012921	l1_Loss: 0.005073
+Train source3 iter: 40 [(38%)]	Loss: 0.085941	RUL_Loss: 0.066490	mmd_Loss: 0.015162	l1_Loss: 0.005204
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.049120	RUL_Loss: 0.033540	mmd_Loss: 0.011778	l1_Loss: 0.004084
+Train source2 iter: 50 [(47%)]	Loss: 0.042045	RUL_Loss: 0.021603	mmd_Loss: 0.015626	l1_Loss: 0.005186
+Train source3 iter: 50 [(47%)]	Loss: 0.087557	RUL_Loss: 0.067515	mmd_Loss: 0.015093	l1_Loss: 0.005310
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.049578	RUL_Loss: 0.036583	mmd_Loss: 0.008935	l1_Loss: 0.004151
+Train source2 iter: 60 [(57%)]	Loss: 0.036946	RUL_Loss: 0.021191	mmd_Loss: 0.010612	l1_Loss: 0.005254
+Train source3 iter: 60 [(57%)]	Loss: 0.089194	RUL_Loss: 0.067115	mmd_Loss: 0.016934	l1_Loss: 0.005299
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.047285	RUL_Loss: 0.034045	mmd_Loss: 0.009249	l1_Loss: 0.004027
+Train source2 iter: 70 [(66%)]	Loss: 0.040067	RUL_Loss: 0.024214	mmd_Loss: 0.011128	l1_Loss: 0.004767
+Train source3 iter: 70 [(66%)]	Loss: 0.090688	RUL_Loss: 0.069023	mmd_Loss: 0.016503	l1_Loss: 0.005222
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.048075	RUL_Loss: 0.034813	mmd_Loss: 0.009064	l1_Loss: 0.004212
+Train source2 iter: 80 [(75%)]	Loss: 0.048457	RUL_Loss: 0.025251	mmd_Loss: 0.017681	l1_Loss: 0.005550
+Train source3 iter: 80 [(75%)]	Loss: 0.085234	RUL_Loss: 0.062931	mmd_Loss: 0.017027	l1_Loss: 0.005298
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.045215	RUL_Loss: 0.032249	mmd_Loss: 0.008987	l1_Loss: 0.003983
+Train source2 iter: 90 [(85%)]	Loss: 0.042873	RUL_Loss: 0.024778	mmd_Loss: 0.012882	l1_Loss: 0.005221
+Train source3 iter: 90 [(85%)]	Loss: 0.090335	RUL_Loss: 0.067478	mmd_Loss: 0.017463	l1_Loss: 0.005403
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.050725	RUL_Loss: 0.035156	mmd_Loss: 0.011123	l1_Loss: 0.004449
+Train source2 iter: 100 [(94%)]	Loss: 0.039563	RUL_Loss: 0.023649	mmd_Loss: 0.010573	l1_Loss: 0.005344
+Train source3 iter: 100 [(94%)]	Loss: 0.094839	RUL_Loss: 0.073338	mmd_Loss: 0.015737	l1_Loss: 0.005767
+
+
+Train epochs:14.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.040557	RUL_Loss: 0.034221	mmd_Loss: 0.009520	l1_Loss: 0.004895
+Train source2 iter: 10 [(9%)]	Loss: 0.036334	RUL_Loss: 0.027802	mmd_Loss: 0.014375	l1_Loss: 0.005034
+Train source3 iter: 10 [(9%)]	Loss: 0.067889	RUL_Loss: 0.058062	mmd_Loss: 0.016954	l1_Loss: 0.005402
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.045871	RUL_Loss: 0.033040	mmd_Loss: 0.013067	l1_Loss: 0.004348
+Train source2 iter: 20 [(19%)]	Loss: 0.036873	RUL_Loss: 0.024809	mmd_Loss: 0.011345	l1_Loss: 0.005029
+Train source3 iter: 20 [(19%)]	Loss: 0.082709	RUL_Loss: 0.065590	mmd_Loss: 0.017801	l1_Loss: 0.005434
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.049686	RUL_Loss: 0.036957	mmd_Loss: 0.009791	l1_Loss: 0.004535
+Train source2 iter: 30 [(28%)]	Loss: 0.044817	RUL_Loss: 0.029445	mmd_Loss: 0.012413	l1_Loss: 0.004885
+Train source3 iter: 30 [(28%)]	Loss: 0.079264	RUL_Loss: 0.062064	mmd_Loss: 0.014271	l1_Loss: 0.005086
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.045121	RUL_Loss: 0.031331	mmd_Loss: 0.009582	l1_Loss: 0.004857
+Train source2 iter: 40 [(38%)]	Loss: 0.039733	RUL_Loss: 0.024724	mmd_Loss: 0.011113	l1_Loss: 0.004601
+Train source3 iter: 40 [(38%)]	Loss: 0.083953	RUL_Loss: 0.062712	mmd_Loss: 0.017184	l1_Loss: 0.005056
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.045528	RUL_Loss: 0.032239	mmd_Loss: 0.009261	l1_Loss: 0.004269
+Train source2 iter: 50 [(47%)]	Loss: 0.041263	RUL_Loss: 0.023746	mmd_Loss: 0.012837	l1_Loss: 0.004996
+Train source3 iter: 50 [(47%)]	Loss: 0.079480	RUL_Loss: 0.059663	mmd_Loss: 0.015494	l1_Loss: 0.004680
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.049154	RUL_Loss: 0.032375	mmd_Loss: 0.012743	l1_Loss: 0.004154
+Train source2 iter: 60 [(57%)]	Loss: 0.040676	RUL_Loss: 0.026195	mmd_Loss: 0.009750	l1_Loss: 0.004833
+Train source3 iter: 60 [(57%)]	Loss: 0.085922	RUL_Loss: 0.063980	mmd_Loss: 0.016471	l1_Loss: 0.005624
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.050238	RUL_Loss: 0.036327	mmd_Loss: 0.009231	l1_Loss: 0.004718
+Train source2 iter: 70 [(66%)]	Loss: 0.042767	RUL_Loss: 0.027281	mmd_Loss: 0.010691	l1_Loss: 0.004837
+Train source3 iter: 70 [(66%)]	Loss: 0.083838	RUL_Loss: 0.063417	mmd_Loss: 0.015027	l1_Loss: 0.005449
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.043127	RUL_Loss: 0.030656	mmd_Loss: 0.008447	l1_Loss: 0.004037
+Train source2 iter: 80 [(75%)]	Loss: 0.040983	RUL_Loss: 0.025830	mmd_Loss: 0.010414	l1_Loss: 0.004755
+Train source3 iter: 80 [(75%)]	Loss: 0.080704	RUL_Loss: 0.059382	mmd_Loss: 0.016351	l1_Loss: 0.004994
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.052531	RUL_Loss: 0.035872	mmd_Loss: 0.012311	l1_Loss: 0.004354
+Train source2 iter: 90 [(85%)]	Loss: 0.036811	RUL_Loss: 0.021899	mmd_Loss: 0.010290	l1_Loss: 0.004627
+Train source3 iter: 90 [(85%)]	Loss: 0.087185	RUL_Loss: 0.064389	mmd_Loss: 0.017231	l1_Loss: 0.005575
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.049547	RUL_Loss: 0.034947	mmd_Loss: 0.010285	l1_Loss: 0.004318
+Train source2 iter: 100 [(94%)]	Loss: 0.042800	RUL_Loss: 0.026854	mmd_Loss: 0.011161	l1_Loss: 0.004788
+Train source3 iter: 100 [(94%)]	Loss: 0.088873	RUL_Loss: 0.065622	mmd_Loss: 0.017491	l1_Loss: 0.005764
+
+
+Train epochs:15.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.040276	RUL_Loss: 0.033369	mmd_Loss: 0.009910	l1_Loss: 0.005802
+Train source2 iter: 10 [(9%)]	Loss: 0.031237	RUL_Loss: 0.023104	mmd_Loss: 0.012170	l1_Loss: 0.006332
+Train source3 iter: 10 [(9%)]	Loss: 0.070693	RUL_Loss: 0.061557	mmd_Loss: 0.015053	l1_Loss: 0.005730
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.049065	RUL_Loss: 0.037415	mmd_Loss: 0.011108	l1_Loss: 0.004703
+Train source2 iter: 20 [(19%)]	Loss: 0.035991	RUL_Loss: 0.024733	mmd_Loss: 0.009834	l1_Loss: 0.005446
+Train source3 iter: 20 [(19%)]	Loss: 0.076850	RUL_Loss: 0.062434	mmd_Loss: 0.014365	l1_Loss: 0.005201
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.046554	RUL_Loss: 0.031756	mmd_Loss: 0.012479	l1_Loss: 0.004174
+Train source2 iter: 30 [(28%)]	Loss: 0.038239	RUL_Loss: 0.024744	mmd_Loss: 0.010017	l1_Loss: 0.005170
+Train source3 iter: 30 [(28%)]	Loss: 0.079719	RUL_Loss: 0.059526	mmd_Loss: 0.017679	l1_Loss: 0.005046
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.046270	RUL_Loss: 0.033013	mmd_Loss: 0.009169	l1_Loss: 0.004712
+Train source2 iter: 40 [(38%)]	Loss: 0.039374	RUL_Loss: 0.022088	mmd_Loss: 0.012241	l1_Loss: 0.005858
+Train source3 iter: 40 [(38%)]	Loss: 0.083304	RUL_Loss: 0.062875	mmd_Loss: 0.015717	l1_Loss: 0.005673
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.048002	RUL_Loss: 0.032156	mmd_Loss: 0.011736	l1_Loss: 0.004396
+Train source2 iter: 50 [(47%)]	Loss: 0.042186	RUL_Loss: 0.027283	mmd_Loss: 0.010053	l1_Loss: 0.005119
+Train source3 iter: 50 [(47%)]	Loss: 0.079665	RUL_Loss: 0.058185	mmd_Loss: 0.016642	l1_Loss: 0.005225
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.050692	RUL_Loss: 0.035743	mmd_Loss: 0.010304	l1_Loss: 0.004749
+Train source2 iter: 60 [(57%)]	Loss: 0.040428	RUL_Loss: 0.021745	mmd_Loss: 0.012809	l1_Loss: 0.006004
+Train source3 iter: 60 [(57%)]	Loss: 0.082556	RUL_Loss: 0.061447	mmd_Loss: 0.015834	l1_Loss: 0.005423
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.047856	RUL_Loss: 0.031427	mmd_Loss: 0.012321	l1_Loss: 0.004152
+Train source2 iter: 70 [(66%)]	Loss: 0.042247	RUL_Loss: 0.023586	mmd_Loss: 0.013242	l1_Loss: 0.005470
+Train source3 iter: 70 [(66%)]	Loss: 0.079280	RUL_Loss: 0.057679	mmd_Loss: 0.016692	l1_Loss: 0.004968
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.049857	RUL_Loss: 0.032587	mmd_Loss: 0.012485	l1_Loss: 0.004803
+Train source2 iter: 80 [(75%)]	Loss: 0.041589	RUL_Loss: 0.023507	mmd_Loss: 0.012271	l1_Loss: 0.005829
+Train source3 iter: 80 [(75%)]	Loss: 0.085963	RUL_Loss: 0.064523	mmd_Loss: 0.015592	l1_Loss: 0.005871
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.045752	RUL_Loss: 0.032012	mmd_Loss: 0.009541	l1_Loss: 0.004205
+Train source2 iter: 90 [(85%)]	Loss: 0.038732	RUL_Loss: 0.023492	mmd_Loss: 0.010119	l1_Loss: 0.005127
+Train source3 iter: 90 [(85%)]	Loss: 0.081247	RUL_Loss: 0.059536	mmd_Loss: 0.016609	l1_Loss: 0.005110
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.049726	RUL_Loss: 0.033481	mmd_Loss: 0.011657	l1_Loss: 0.004591
+Train source2 iter: 100 [(94%)]	Loss: 0.043374	RUL_Loss: 0.026000	mmd_Loss: 0.011837	l1_Loss: 0.005540
+Train source3 iter: 100 [(94%)]	Loss: 0.081491	RUL_Loss: 0.062299	mmd_Loss: 0.014105	l1_Loss: 0.005090
+
+
+Train epochs:16.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.045418	RUL_Loss: 0.039053	mmd_Loss: 0.010149	l1_Loss: 0.004331
+Train source2 iter: 10 [(9%)]	Loss: 0.034566	RUL_Loss: 0.023320	mmd_Loss: 0.020245	l1_Loss: 0.005339
+Train source3 iter: 10 [(9%)]	Loss: 0.071885	RUL_Loss: 0.062852	mmd_Loss: 0.015360	l1_Loss: 0.005190
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.042308	RUL_Loss: 0.031750	mmd_Loss: 0.009893	l1_Loss: 0.004437
+Train source2 iter: 20 [(19%)]	Loss: 0.036469	RUL_Loss: 0.024124	mmd_Loss: 0.011578	l1_Loss: 0.005177
+Train source3 iter: 20 [(19%)]	Loss: 0.075457	RUL_Loss: 0.059741	mmd_Loss: 0.015770	l1_Loss: 0.005560
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.052483	RUL_Loss: 0.039376	mmd_Loss: 0.010244	l1_Loss: 0.004507
+Train source2 iter: 30 [(28%)]	Loss: 0.042468	RUL_Loss: 0.024349	mmd_Loss: 0.015393	l1_Loss: 0.004998
+Train source3 iter: 30 [(28%)]	Loss: 0.077156	RUL_Loss: 0.059151	mmd_Loss: 0.015137	l1_Loss: 0.005126
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.046312	RUL_Loss: 0.033115	mmd_Loss: 0.009352	l1_Loss: 0.004466
+Train source2 iter: 40 [(38%)]	Loss: 0.042232	RUL_Loss: 0.023674	mmd_Loss: 0.013968	l1_Loss: 0.005463
+Train source3 iter: 40 [(38%)]	Loss: 0.085720	RUL_Loss: 0.065372	mmd_Loss: 0.016541	l1_Loss: 0.004764
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.051851	RUL_Loss: 0.036763	mmd_Loss: 0.010603	l1_Loss: 0.004757
+Train source2 iter: 50 [(47%)]	Loss: 0.042115	RUL_Loss: 0.026440	mmd_Loss: 0.010777	l1_Loss: 0.005180
+Train source3 iter: 50 [(47%)]	Loss: 0.084819	RUL_Loss: 0.063355	mmd_Loss: 0.016415	l1_Loss: 0.005436
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.046824	RUL_Loss: 0.033154	mmd_Loss: 0.009341	l1_Loss: 0.004424
+Train source2 iter: 60 [(57%)]	Loss: 0.039189	RUL_Loss: 0.021522	mmd_Loss: 0.012661	l1_Loss: 0.005129
+Train source3 iter: 60 [(57%)]	Loss: 0.082498	RUL_Loss: 0.061492	mmd_Loss: 0.016298	l1_Loss: 0.004854
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.049207	RUL_Loss: 0.034350	mmd_Loss: 0.010345	l1_Loss: 0.004553
+Train source2 iter: 70 [(66%)]	Loss: 0.041503	RUL_Loss: 0.022595	mmd_Loss: 0.013550	l1_Loss: 0.005409
+Train source3 iter: 70 [(66%)]	Loss: 0.082887	RUL_Loss: 0.061896	mmd_Loss: 0.015898	l1_Loss: 0.005149
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.045134	RUL_Loss: 0.031219	mmd_Loss: 0.009459	l1_Loss: 0.004471
+Train source2 iter: 80 [(75%)]	Loss: 0.043742	RUL_Loss: 0.024770	mmd_Loss: 0.013626	l1_Loss: 0.005367
+Train source3 iter: 80 [(75%)]	Loss: 0.096852	RUL_Loss: 0.072494	mmd_Loss: 0.019082	l1_Loss: 0.005301
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.047405	RUL_Loss: 0.032523	mmd_Loss: 0.010276	l1_Loss: 0.004612
+Train source2 iter: 90 [(85%)]	Loss: 0.042877	RUL_Loss: 0.024448	mmd_Loss: 0.013277	l1_Loss: 0.005159
+Train source3 iter: 90 [(85%)]	Loss: 0.080428	RUL_Loss: 0.060686	mmd_Loss: 0.014202	l1_Loss: 0.005548
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.046144	RUL_Loss: 0.032095	mmd_Loss: 0.009659	l1_Loss: 0.004392
+Train source2 iter: 100 [(94%)]	Loss: 0.045067	RUL_Loss: 0.026502	mmd_Loss: 0.013070	l1_Loss: 0.005498
+Train source3 iter: 100 [(94%)]	Loss: 0.082845	RUL_Loss: 0.062036	mmd_Loss: 0.015646	l1_Loss: 0.005166
+
+
+Train epochs:17.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.037799	RUL_Loss: 0.031911	mmd_Loss: 0.009098	l1_Loss: 0.004296
+Train source2 iter: 10 [(9%)]	Loss: 0.031867	RUL_Loss: 0.022050	mmd_Loss: 0.016953	l1_Loss: 0.005381
+Train source3 iter: 10 [(9%)]	Loss: 0.065007	RUL_Loss: 0.055974	mmd_Loss: 0.015296	l1_Loss: 0.005254
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.045592	RUL_Loss: 0.035242	mmd_Loss: 0.009889	l1_Loss: 0.004159
+Train source2 iter: 20 [(19%)]	Loss: 0.033468	RUL_Loss: 0.021545	mmd_Loss: 0.011345	l1_Loss: 0.004839
+Train source3 iter: 20 [(19%)]	Loss: 0.070803	RUL_Loss: 0.056667	mmd_Loss: 0.013402	l1_Loss: 0.005784
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.045782	RUL_Loss: 0.032155	mmd_Loss: 0.011395	l1_Loss: 0.003941
+Train source2 iter: 30 [(28%)]	Loss: 0.039389	RUL_Loss: 0.024386	mmd_Loss: 0.011787	l1_Loss: 0.005098
+Train source3 iter: 30 [(28%)]	Loss: 0.078116	RUL_Loss: 0.058255	mmd_Loss: 0.016970	l1_Loss: 0.005382
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.042981	RUL_Loss: 0.030861	mmd_Loss: 0.008661	l1_Loss: 0.004029
+Train source2 iter: 40 [(38%)]	Loss: 0.039574	RUL_Loss: 0.024016	mmd_Loss: 0.011356	l1_Loss: 0.004934
+Train source3 iter: 40 [(38%)]	Loss: 0.081206	RUL_Loss: 0.061983	mmd_Loss: 0.015026	l1_Loss: 0.005101
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.048580	RUL_Loss: 0.033202	mmd_Loss: 0.011525	l1_Loss: 0.004130
+Train source2 iter: 50 [(47%)]	Loss: 0.039872	RUL_Loss: 0.022583	mmd_Loss: 0.012442	l1_Loss: 0.005160
+Train source3 iter: 50 [(47%)]	Loss: 0.082657	RUL_Loss: 0.063406	mmd_Loss: 0.013924	l1_Loss: 0.005674
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.042673	RUL_Loss: 0.029408	mmd_Loss: 0.008997	l1_Loss: 0.004360
+Train source2 iter: 60 [(57%)]	Loss: 0.040086	RUL_Loss: 0.023547	mmd_Loss: 0.011984	l1_Loss: 0.004671
+Train source3 iter: 60 [(57%)]	Loss: 0.083191	RUL_Loss: 0.062771	mmd_Loss: 0.015237	l1_Loss: 0.005325
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.048303	RUL_Loss: 0.035033	mmd_Loss: 0.009085	l1_Loss: 0.004221
+Train source2 iter: 70 [(66%)]	Loss: 0.038950	RUL_Loss: 0.022277	mmd_Loss: 0.011577	l1_Loss: 0.005141
+Train source3 iter: 70 [(66%)]	Loss: 0.084541	RUL_Loss: 0.062851	mmd_Loss: 0.016066	l1_Loss: 0.005683
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.049398	RUL_Loss: 0.034421	mmd_Loss: 0.010398	l1_Loss: 0.004595
+Train source2 iter: 80 [(75%)]	Loss: 0.037217	RUL_Loss: 0.021074	mmd_Loss: 0.011770	l1_Loss: 0.004390
+Train source3 iter: 80 [(75%)]	Loss: 0.088921	RUL_Loss: 0.064314	mmd_Loss: 0.018808	l1_Loss: 0.005825
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.047195	RUL_Loss: 0.032369	mmd_Loss: 0.010394	l1_Loss: 0.004438
+Train source2 iter: 90 [(85%)]	Loss: 0.045201	RUL_Loss: 0.025130	mmd_Loss: 0.014719	l1_Loss: 0.005360
+Train source3 iter: 90 [(85%)]	Loss: 0.082896	RUL_Loss: 0.061313	mmd_Loss: 0.016266	l1_Loss: 0.005326
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.047112	RUL_Loss: 0.033871	mmd_Loss: 0.009094	l1_Loss: 0.004149
+Train source2 iter: 100 [(94%)]	Loss: 0.036921	RUL_Loss: 0.021990	mmd_Loss: 0.010331	l1_Loss: 0.004603
+Train source3 iter: 100 [(94%)]	Loss: 0.085867	RUL_Loss: 0.062796	mmd_Loss: 0.017609	l1_Loss: 0.005466
+
+
+Train epochs:18.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.039574	RUL_Loss: 0.032813	mmd_Loss: 0.009243	l1_Loss: 0.006137
+Train source2 iter: 10 [(9%)]	Loss: 0.033318	RUL_Loss: 0.024723	mmd_Loss: 0.012430	l1_Loss: 0.007122
+Train source3 iter: 10 [(9%)]	Loss: 0.070692	RUL_Loss: 0.061496	mmd_Loss: 0.015161	l1_Loss: 0.005760
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.045065	RUL_Loss: 0.032940	mmd_Loss: 0.011648	l1_Loss: 0.004808
+Train source2 iter: 20 [(19%)]	Loss: 0.036536	RUL_Loss: 0.024572	mmd_Loss: 0.010742	l1_Loss: 0.005497
+Train source3 iter: 20 [(19%)]	Loss: 0.075542	RUL_Loss: 0.060457	mmd_Loss: 0.015612	l1_Loss: 0.004862
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.047397	RUL_Loss: 0.035487	mmd_Loss: 0.008804	l1_Loss: 0.004600
+Train source2 iter: 30 [(28%)]	Loss: 0.037317	RUL_Loss: 0.022560	mmd_Loss: 0.011145	l1_Loss: 0.005462
+Train source3 iter: 30 [(28%)]	Loss: 0.080108	RUL_Loss: 0.062863	mmd_Loss: 0.013998	l1_Loss: 0.005410
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.047453	RUL_Loss: 0.033597	mmd_Loss: 0.009917	l1_Loss: 0.004590
+Train source2 iter: 40 [(38%)]	Loss: 0.038993	RUL_Loss: 0.024115	mmd_Loss: 0.010146	l1_Loss: 0.005431
+Train source3 iter: 40 [(38%)]	Loss: 0.082206	RUL_Loss: 0.062617	mmd_Loss: 0.015249	l1_Loss: 0.005261
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.048582	RUL_Loss: 0.032186	mmd_Loss: 0.012188	l1_Loss: 0.004503
+Train source2 iter: 50 [(47%)]	Loss: 0.035557	RUL_Loss: 0.020146	mmd_Loss: 0.010279	l1_Loss: 0.005411
+Train source3 iter: 50 [(47%)]	Loss: 0.079148	RUL_Loss: 0.058824	mmd_Loss: 0.015549	l1_Loss: 0.005142
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.045732	RUL_Loss: 0.032198	mmd_Loss: 0.009149	l1_Loss: 0.004480
+Train source2 iter: 60 [(57%)]	Loss: 0.038008	RUL_Loss: 0.023296	mmd_Loss: 0.009164	l1_Loss: 0.005652
+Train source3 iter: 60 [(57%)]	Loss: 0.082902	RUL_Loss: 0.060775	mmd_Loss: 0.017158	l1_Loss: 0.005123
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.048493	RUL_Loss: 0.034557	mmd_Loss: 0.009289	l1_Loss: 0.004685
+Train source2 iter: 70 [(66%)]	Loss: 0.042636	RUL_Loss: 0.026990	mmd_Loss: 0.010317	l1_Loss: 0.005372
+Train source3 iter: 70 [(66%)]	Loss: 0.082525	RUL_Loss: 0.061232	mmd_Loss: 0.015965	l1_Loss: 0.005387
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.050821	RUL_Loss: 0.034019	mmd_Loss: 0.011987	l1_Loss: 0.004832
+Train source2 iter: 80 [(75%)]	Loss: 0.041637	RUL_Loss: 0.025139	mmd_Loss: 0.011238	l1_Loss: 0.005278
+Train source3 iter: 80 [(75%)]	Loss: 0.085814	RUL_Loss: 0.064145	mmd_Loss: 0.016657	l1_Loss: 0.005035
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.051875	RUL_Loss: 0.036297	mmd_Loss: 0.010235	l1_Loss: 0.005349
+Train source2 iter: 90 [(85%)]	Loss: 0.038318	RUL_Loss: 0.023419	mmd_Loss: 0.009374	l1_Loss: 0.005531
+Train source3 iter: 90 [(85%)]	Loss: 0.078619	RUL_Loss: 0.059145	mmd_Loss: 0.014350	l1_Loss: 0.005133
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.050048	RUL_Loss: 0.034099	mmd_Loss: 0.011260	l1_Loss: 0.004692
+Train source2 iter: 100 [(94%)]	Loss: 0.038650	RUL_Loss: 0.022726	mmd_Loss: 0.010363	l1_Loss: 0.005564
+Train source3 iter: 100 [(94%)]	Loss: 0.079529	RUL_Loss: 0.056843	mmd_Loss: 0.017260	l1_Loss: 0.005430
+
+
+Train epochs:19.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.040676	RUL_Loss: 0.033886	mmd_Loss: 0.011271	l1_Loss: 0.004177
+Train source2 iter: 10 [(9%)]	Loss: 0.032924	RUL_Loss: 0.025686	mmd_Loss: 0.011913	l1_Loss: 0.004554
+Train source3 iter: 10 [(9%)]	Loss: 0.071625	RUL_Loss: 0.062141	mmd_Loss: 0.016353	l1_Loss: 0.005223
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.045646	RUL_Loss: 0.035498	mmd_Loss: 0.009495	l1_Loss: 0.004279
+Train source2 iter: 20 [(19%)]	Loss: 0.036987	RUL_Loss: 0.022609	mmd_Loss: 0.014589	l1_Loss: 0.004926
+Train source3 iter: 20 [(19%)]	Loss: 0.072716	RUL_Loss: 0.058912	mmd_Loss: 0.014115	l1_Loss: 0.004620
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.040426	RUL_Loss: 0.029706	mmd_Loss: 0.008040	l1_Loss: 0.004024
+Train source2 iter: 30 [(28%)]	Loss: 0.039719	RUL_Loss: 0.024945	mmd_Loss: 0.011927	l1_Loss: 0.004699
+Train source3 iter: 30 [(28%)]	Loss: 0.074961	RUL_Loss: 0.056871	mmd_Loss: 0.015458	l1_Loss: 0.004901
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.049019	RUL_Loss: 0.033976	mmd_Loss: 0.011258	l1_Loss: 0.004493
+Train source2 iter: 40 [(38%)]	Loss: 0.042910	RUL_Loss: 0.024614	mmd_Loss: 0.014383	l1_Loss: 0.004774
+Train source3 iter: 40 [(38%)]	Loss: 0.080247	RUL_Loss: 0.060390	mmd_Loss: 0.015702	l1_Loss: 0.005089
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.047947	RUL_Loss: 0.035742	mmd_Loss: 0.008183	l1_Loss: 0.004242
+Train source2 iter: 50 [(47%)]	Loss: 0.036035	RUL_Loss: 0.021408	mmd_Loss: 0.010252	l1_Loss: 0.004640
+Train source3 iter: 50 [(47%)]	Loss: 0.078482	RUL_Loss: 0.059309	mmd_Loss: 0.014898	l1_Loss: 0.004622
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.048796	RUL_Loss: 0.034293	mmd_Loss: 0.010252	l1_Loss: 0.004353
+Train source2 iter: 60 [(57%)]	Loss: 0.042756	RUL_Loss: 0.026210	mmd_Loss: 0.011841	l1_Loss: 0.004821
+Train source3 iter: 60 [(57%)]	Loss: 0.086129	RUL_Loss: 0.066927	mmd_Loss: 0.014263	l1_Loss: 0.005073
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.045290	RUL_Loss: 0.032663	mmd_Loss: 0.008395	l1_Loss: 0.004266
+Train source2 iter: 70 [(66%)]	Loss: 0.038646	RUL_Loss: 0.023724	mmd_Loss: 0.010524	l1_Loss: 0.004438
+Train source3 iter: 70 [(66%)]	Loss: 0.076236	RUL_Loss: 0.055356	mmd_Loss: 0.015783	l1_Loss: 0.005154
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.048854	RUL_Loss: 0.033758	mmd_Loss: 0.010707	l1_Loss: 0.004404
+Train source2 iter: 80 [(75%)]	Loss: 0.043124	RUL_Loss: 0.022977	mmd_Loss: 0.015022	l1_Loss: 0.005146
+Train source3 iter: 80 [(75%)]	Loss: 0.078609	RUL_Loss: 0.059217	mmd_Loss: 0.014379	l1_Loss: 0.005033
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.042931	RUL_Loss: 0.030174	mmd_Loss: 0.008738	l1_Loss: 0.004025
+Train source2 iter: 90 [(85%)]	Loss: 0.039580	RUL_Loss: 0.023218	mmd_Loss: 0.011568	l1_Loss: 0.004801
+Train source3 iter: 90 [(85%)]	Loss: 0.080771	RUL_Loss: 0.059925	mmd_Loss: 0.015790	l1_Loss: 0.005064
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.048366	RUL_Loss: 0.033236	mmd_Loss: 0.010597	l1_Loss: 0.004536
+Train source2 iter: 100 [(94%)]	Loss: 0.042164	RUL_Loss: 0.025233	mmd_Loss: 0.011834	l1_Loss: 0.005100
+Train source3 iter: 100 [(94%)]	Loss: 0.081210	RUL_Loss: 0.061989	mmd_Loss: 0.014122	l1_Loss: 0.005102
+
+
+Train epochs:20.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.036743	RUL_Loss: 0.030628	mmd_Loss: 0.009506	l1_Loss: 0.004405
+Train source2 iter: 10 [(9%)]	Loss: 0.032105	RUL_Loss: 0.025493	mmd_Loss: 0.009989	l1_Loss: 0.005052
+Train source3 iter: 10 [(9%)]	Loss: 0.071167	RUL_Loss: 0.062075	mmd_Loss: 0.015403	l1_Loss: 0.005281
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.042860	RUL_Loss: 0.033647	mmd_Loss: 0.008601	l1_Loss: 0.003904
+Train source2 iter: 20 [(19%)]	Loss: 0.034339	RUL_Loss: 0.022261	mmd_Loss: 0.011472	l1_Loss: 0.004921
+Train source3 iter: 20 [(19%)]	Loss: 0.076997	RUL_Loss: 0.062338	mmd_Loss: 0.014943	l1_Loss: 0.004954
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.042580	RUL_Loss: 0.030938	mmd_Loss: 0.008842	l1_Loss: 0.004261
+Train source2 iter: 30 [(28%)]	Loss: 0.037682	RUL_Loss: 0.024278	mmd_Loss: 0.010485	l1_Loss: 0.004599
+Train source3 iter: 30 [(28%)]	Loss: 0.075139	RUL_Loss: 0.056933	mmd_Loss: 0.015613	l1_Loss: 0.004876
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.042993	RUL_Loss: 0.030188	mmd_Loss: 0.008977	l1_Loss: 0.004431
+Train source2 iter: 40 [(38%)]	Loss: 0.039323	RUL_Loss: 0.023549	mmd_Loss: 0.011358	l1_Loss: 0.005158
+Train source3 iter: 40 [(38%)]	Loss: 0.077195	RUL_Loss: 0.059306	mmd_Loss: 0.014013	l1_Loss: 0.004718
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.047493	RUL_Loss: 0.032373	mmd_Loss: 0.011254	l1_Loss: 0.004140
+Train source2 iter: 50 [(47%)]	Loss: 0.037227	RUL_Loss: 0.021781	mmd_Loss: 0.011226	l1_Loss: 0.004498
+Train source3 iter: 50 [(47%)]	Loss: 0.079336	RUL_Loss: 0.058647	mmd_Loss: 0.016064	l1_Loss: 0.004999
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.045671	RUL_Loss: 0.031265	mmd_Loss: 0.010637	l1_Loss: 0.003870
+Train source2 iter: 60 [(57%)]	Loss: 0.043145	RUL_Loss: 0.027238	mmd_Loss: 0.011051	l1_Loss: 0.004967
+Train source3 iter: 60 [(57%)]	Loss: 0.074952	RUL_Loss: 0.055995	mmd_Loss: 0.014345	l1_Loss: 0.004744
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.044021	RUL_Loss: 0.030814	mmd_Loss: 0.009124	l1_Loss: 0.004118
+Train source2 iter: 70 [(66%)]	Loss: 0.040233	RUL_Loss: 0.025397	mmd_Loss: 0.010004	l1_Loss: 0.004872
+Train source3 iter: 70 [(66%)]	Loss: 0.079658	RUL_Loss: 0.058335	mmd_Loss: 0.015874	l1_Loss: 0.005507
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.043406	RUL_Loss: 0.031174	mmd_Loss: 0.008211	l1_Loss: 0.004034
+Train source2 iter: 80 [(75%)]	Loss: 0.042888	RUL_Loss: 0.025304	mmd_Loss: 0.012633	l1_Loss: 0.004969
+Train source3 iter: 80 [(75%)]	Loss: 0.078946	RUL_Loss: 0.058017	mmd_Loss: 0.015686	l1_Loss: 0.005265
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.043302	RUL_Loss: 0.028641	mmd_Loss: 0.010476	l1_Loss: 0.004192
+Train source2 iter: 90 [(85%)]	Loss: 0.038590	RUL_Loss: 0.022919	mmd_Loss: 0.010522	l1_Loss: 0.005156
+Train source3 iter: 90 [(85%)]	Loss: 0.073827	RUL_Loss: 0.054144	mmd_Loss: 0.014734	l1_Loss: 0.004956
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.048737	RUL_Loss: 0.034152	mmd_Loss: 0.010578	l1_Loss: 0.004009
+Train source2 iter: 100 [(94%)]	Loss: 0.038121	RUL_Loss: 0.021483	mmd_Loss: 0.011889	l1_Loss: 0.004751
+Train source3 iter: 100 [(94%)]	Loss: 0.083198	RUL_Loss: 0.062223	mmd_Loss: 0.016287	l1_Loss: 0.004692
+
+
+Train epochs:21.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.039747	RUL_Loss: 0.033273	mmd_Loss: 0.010490	l1_Loss: 0.004236
+Train source2 iter: 10 [(9%)]	Loss: 0.032902	RUL_Loss: 0.025836	mmd_Loss: 0.010631	l1_Loss: 0.005443
+Train source3 iter: 10 [(9%)]	Loss: 0.068704	RUL_Loss: 0.059374	mmd_Loss: 0.016190	l1_Loss: 0.005035
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.042804	RUL_Loss: 0.032147	mmd_Loss: 0.010474	l1_Loss: 0.003990
+Train source2 iter: 20 [(19%)]	Loss: 0.034339	RUL_Loss: 0.022834	mmd_Loss: 0.010594	l1_Loss: 0.005021
+Train source3 iter: 20 [(19%)]	Loss: 0.072763	RUL_Loss: 0.058010	mmd_Loss: 0.015426	l1_Loss: 0.004598
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.046329	RUL_Loss: 0.033013	mmd_Loss: 0.011094	l1_Loss: 0.003892
+Train source2 iter: 30 [(28%)]	Loss: 0.038081	RUL_Loss: 0.022406	mmd_Loss: 0.012577	l1_Loss: 0.005064
+Train source3 iter: 30 [(28%)]	Loss: 0.075590	RUL_Loss: 0.057631	mmd_Loss: 0.015579	l1_Loss: 0.004632
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.045811	RUL_Loss: 0.031233	mmd_Loss: 0.011178	l1_Loss: 0.004084
+Train source2 iter: 40 [(38%)]	Loss: 0.035731	RUL_Loss: 0.022157	mmd_Loss: 0.009755	l1_Loss: 0.004458
+Train source3 iter: 40 [(38%)]	Loss: 0.073938	RUL_Loss: 0.056415	mmd_Loss: 0.013665	l1_Loss: 0.004683
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.046949	RUL_Loss: 0.034491	mmd_Loss: 0.008970	l1_Loss: 0.003713
+Train source2 iter: 50 [(47%)]	Loss: 0.037045	RUL_Loss: 0.022719	mmd_Loss: 0.010027	l1_Loss: 0.004558
+Train source3 iter: 50 [(47%)]	Loss: 0.076764	RUL_Loss: 0.057054	mmd_Loss: 0.015020	l1_Loss: 0.005045
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.044893	RUL_Loss: 0.029729	mmd_Loss: 0.011112	l1_Loss: 0.004158
+Train source2 iter: 60 [(57%)]	Loss: 0.039966	RUL_Loss: 0.023724	mmd_Loss: 0.011715	l1_Loss: 0.004640
+Train source3 iter: 60 [(57%)]	Loss: 0.078047	RUL_Loss: 0.057681	mmd_Loss: 0.015467	l1_Loss: 0.005042
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.046765	RUL_Loss: 0.031290	mmd_Loss: 0.011675	l1_Loss: 0.003842
+Train source2 iter: 70 [(66%)]	Loss: 0.037877	RUL_Loss: 0.022592	mmd_Loss: 0.010724	l1_Loss: 0.004602
+Train source3 iter: 70 [(66%)]	Loss: 0.073010	RUL_Loss: 0.054996	mmd_Loss: 0.013313	l1_Loss: 0.004750
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.046351	RUL_Loss: 0.032403	mmd_Loss: 0.010138	l1_Loss: 0.003825
+Train source2 iter: 80 [(75%)]	Loss: 0.038762	RUL_Loss: 0.023401	mmd_Loss: 0.010652	l1_Loss: 0.004725
+Train source3 iter: 80 [(75%)]	Loss: 0.076275	RUL_Loss: 0.056714	mmd_Loss: 0.014588	l1_Loss: 0.004994
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.040483	RUL_Loss: 0.027473	mmd_Loss: 0.009220	l1_Loss: 0.003795
+Train source2 iter: 90 [(85%)]	Loss: 0.042922	RUL_Loss: 0.027489	mmd_Loss: 0.010705	l1_Loss: 0.004734
+Train source3 iter: 90 [(85%)]	Loss: 0.077594	RUL_Loss: 0.056801	mmd_Loss: 0.015841	l1_Loss: 0.004961
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.045659	RUL_Loss: 0.032021	mmd_Loss: 0.009694	l1_Loss: 0.003947
+Train source2 iter: 100 [(94%)]	Loss: 0.036165	RUL_Loss: 0.022343	mmd_Loss: 0.009198	l1_Loss: 0.004626
+Train source3 iter: 100 [(94%)]	Loss: 0.075185	RUL_Loss: 0.055174	mmd_Loss: 0.015491	l1_Loss: 0.004523
+
+
+Train epochs:22.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.040453	RUL_Loss: 0.034575	mmd_Loss: 0.009198	l1_Loss: 0.004174
+Train source2 iter: 10 [(9%)]	Loss: 0.030584	RUL_Loss: 0.023524	mmd_Loss: 0.010946	l1_Loss: 0.005117
+Train source3 iter: 10 [(9%)]	Loss: 0.070888	RUL_Loss: 0.061017	mmd_Loss: 0.017447	l1_Loss: 0.005009
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.043693	RUL_Loss: 0.033747	mmd_Loss: 0.009464	l1_Loss: 0.004037
+Train source2 iter: 20 [(19%)]	Loss: 0.034914	RUL_Loss: 0.022518	mmd_Loss: 0.012217	l1_Loss: 0.004608
+Train source3 iter: 20 [(19%)]	Loss: 0.070487	RUL_Loss: 0.057101	mmd_Loss: 0.013898	l1_Loss: 0.004270
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.045366	RUL_Loss: 0.033012	mmd_Loss: 0.009983	l1_Loss: 0.003920
+Train source2 iter: 30 [(28%)]	Loss: 0.037438	RUL_Loss: 0.024885	mmd_Loss: 0.009868	l1_Loss: 0.004259
+Train source3 iter: 30 [(28%)]	Loss: 0.073838	RUL_Loss: 0.054581	mmd_Loss: 0.016488	l1_Loss: 0.005183
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.045367	RUL_Loss: 0.031997	mmd_Loss: 0.010092	l1_Loss: 0.003906
+Train source2 iter: 40 [(38%)]	Loss: 0.035523	RUL_Loss: 0.021642	mmd_Loss: 0.010454	l1_Loss: 0.004080
+Train source3 iter: 40 [(38%)]	Loss: 0.076244	RUL_Loss: 0.055905	mmd_Loss: 0.016473	l1_Loss: 0.004823
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.052297	RUL_Loss: 0.038315	mmd_Loss: 0.010365	l1_Loss: 0.003869
+Train source2 iter: 50 [(47%)]	Loss: 0.035100	RUL_Loss: 0.020686	mmd_Loss: 0.010082	l1_Loss: 0.004593
+Train source3 iter: 50 [(47%)]	Loss: 0.080483	RUL_Loss: 0.059868	mmd_Loss: 0.016047	l1_Loss: 0.004941
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.045749	RUL_Loss: 0.033646	mmd_Loss: 0.008453	l1_Loss: 0.003734
+Train source2 iter: 60 [(57%)]	Loss: 0.041122	RUL_Loss: 0.024416	mmd_Loss: 0.012228	l1_Loss: 0.004595
+Train source3 iter: 60 [(57%)]	Loss: 0.080578	RUL_Loss: 0.059916	mmd_Loss: 0.016189	l1_Loss: 0.004618
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.045093	RUL_Loss: 0.031814	mmd_Loss: 0.009498	l1_Loss: 0.003818
+Train source2 iter: 70 [(66%)]	Loss: 0.038947	RUL_Loss: 0.022354	mmd_Loss: 0.012184	l1_Loss: 0.004453
+Train source3 iter: 70 [(66%)]	Loss: 0.081546	RUL_Loss: 0.060844	mmd_Loss: 0.016035	l1_Loss: 0.004724
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.045977	RUL_Loss: 0.031949	mmd_Loss: 0.010356	l1_Loss: 0.003686
+Train source2 iter: 80 [(75%)]	Loss: 0.040687	RUL_Loss: 0.022710	mmd_Loss: 0.013159	l1_Loss: 0.004838
+Train source3 iter: 80 [(75%)]	Loss: 0.081482	RUL_Loss: 0.061592	mmd_Loss: 0.015087	l1_Loss: 0.004823
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.045627	RUL_Loss: 0.029685	mmd_Loss: 0.012123	l1_Loss: 0.003825
+Train source2 iter: 90 [(85%)]	Loss: 0.039325	RUL_Loss: 0.023975	mmd_Loss: 0.010848	l1_Loss: 0.004509
+Train source3 iter: 90 [(85%)]	Loss: 0.087624	RUL_Loss: 0.063227	mmd_Loss: 0.019155	l1_Loss: 0.005252
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.046308	RUL_Loss: 0.031782	mmd_Loss: 0.010659	l1_Loss: 0.003869
+Train source2 iter: 100 [(94%)]	Loss: 0.040663	RUL_Loss: 0.024323	mmd_Loss: 0.011761	l1_Loss: 0.004582
+Train source3 iter: 100 [(94%)]	Loss: 0.079299	RUL_Loss: 0.059715	mmd_Loss: 0.014766	l1_Loss: 0.004822
+
+
+Train epochs:23.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.043281	RUL_Loss: 0.036874	mmd_Loss: 0.009857	l1_Loss: 0.004719
+Train source2 iter: 10 [(9%)]	Loss: 0.034491	RUL_Loss: 0.027461	mmd_Loss: 0.009646	l1_Loss: 0.006346
+Train source3 iter: 10 [(9%)]	Loss: 0.065958	RUL_Loss: 0.056913	mmd_Loss: 0.015684	l1_Loss: 0.004894
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.045022	RUL_Loss: 0.033636	mmd_Loss: 0.011050	l1_Loss: 0.004404
+Train source2 iter: 20 [(19%)]	Loss: 0.036296	RUL_Loss: 0.024569	mmd_Loss: 0.010857	l1_Loss: 0.005059
+Train source3 iter: 20 [(19%)]	Loss: 0.072353	RUL_Loss: 0.058358	mmd_Loss: 0.014114	l1_Loss: 0.004881
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.041691	RUL_Loss: 0.029654	mmd_Loss: 0.009660	l1_Loss: 0.003886
+Train source2 iter: 30 [(28%)]	Loss: 0.040747	RUL_Loss: 0.027134	mmd_Loss: 0.010119	l1_Loss: 0.005202
+Train source3 iter: 30 [(28%)]	Loss: 0.074798	RUL_Loss: 0.056122	mmd_Loss: 0.016349	l1_Loss: 0.004670
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.044551	RUL_Loss: 0.030816	mmd_Loss: 0.010173	l1_Loss: 0.004208
+Train source2 iter: 40 [(38%)]	Loss: 0.038744	RUL_Loss: 0.024066	mmd_Loss: 0.010292	l1_Loss: 0.005076
+Train source3 iter: 40 [(38%)]	Loss: 0.077381	RUL_Loss: 0.057827	mmd_Loss: 0.015593	l1_Loss: 0.004880
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.048860	RUL_Loss: 0.033699	mmd_Loss: 0.011684	l1_Loss: 0.003750
+Train source2 iter: 50 [(47%)]	Loss: 0.037106	RUL_Loss: 0.021205	mmd_Loss: 0.010954	l1_Loss: 0.005234
+Train source3 iter: 50 [(47%)]	Loss: 0.076351	RUL_Loss: 0.056765	mmd_Loss: 0.014782	l1_Loss: 0.005157
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.051879	RUL_Loss: 0.035365	mmd_Loss: 0.012639	l1_Loss: 0.003990
+Train source2 iter: 60 [(57%)]	Loss: 0.038392	RUL_Loss: 0.020113	mmd_Loss: 0.012992	l1_Loss: 0.005415
+Train source3 iter: 60 [(57%)]	Loss: 0.080776	RUL_Loss: 0.060823	mmd_Loss: 0.015258	l1_Loss: 0.004834
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.047914	RUL_Loss: 0.033098	mmd_Loss: 0.011131	l1_Loss: 0.003726
+Train source2 iter: 70 [(66%)]	Loss: 0.035187	RUL_Loss: 0.020915	mmd_Loss: 0.009431	l1_Loss: 0.004880
+Train source3 iter: 70 [(66%)]	Loss: 0.082221	RUL_Loss: 0.062950	mmd_Loss: 0.013849	l1_Loss: 0.005474
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.045794	RUL_Loss: 0.030375	mmd_Loss: 0.011106	l1_Loss: 0.004330
+Train source2 iter: 80 [(75%)]	Loss: 0.044926	RUL_Loss: 0.026521	mmd_Loss: 0.013276	l1_Loss: 0.005148
+Train source3 iter: 80 [(75%)]	Loss: 0.077304	RUL_Loss: 0.058066	mmd_Loss: 0.014253	l1_Loss: 0.005006
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.048619	RUL_Loss: 0.033163	mmd_Loss: 0.011654	l1_Loss: 0.003808
+Train source2 iter: 90 [(85%)]	Loss: 0.039735	RUL_Loss: 0.023917	mmd_Loss: 0.010712	l1_Loss: 0.005113
+Train source3 iter: 90 [(85%)]	Loss: 0.076925	RUL_Loss: 0.056943	mmd_Loss: 0.015151	l1_Loss: 0.004840
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.044473	RUL_Loss: 0.031739	mmd_Loss: 0.008613	l1_Loss: 0.004124
+Train source2 iter: 100 [(94%)]	Loss: 0.040259	RUL_Loss: 0.022768	mmd_Loss: 0.012433	l1_Loss: 0.005061
+Train source3 iter: 100 [(94%)]	Loss: 0.076066	RUL_Loss: 0.056914	mmd_Loss: 0.014246	l1_Loss: 0.004909
+
+
+Train epochs:24.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.039242	RUL_Loss: 0.030582	mmd_Loss: 0.015112	l1_Loss: 0.004589
+Train source2 iter: 10 [(9%)]	Loss: 0.029528	RUL_Loss: 0.022468	mmd_Loss: 0.010197	l1_Loss: 0.005864
+Train source3 iter: 10 [(9%)]	Loss: 0.065873	RUL_Loss: 0.056991	mmd_Loss: 0.015582	l1_Loss: 0.004624
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.041401	RUL_Loss: 0.029680	mmd_Loss: 0.012023	l1_Loss: 0.003886
+Train source2 iter: 20 [(19%)]	Loss: 0.037458	RUL_Loss: 0.024823	mmd_Loss: 0.011931	l1_Loss: 0.005218
+Train source3 iter: 20 [(19%)]	Loss: 0.073331	RUL_Loss: 0.059802	mmd_Loss: 0.013608	l1_Loss: 0.004755
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.043629	RUL_Loss: 0.030234	mmd_Loss: 0.011432	l1_Loss: 0.003644
+Train source2 iter: 30 [(28%)]	Loss: 0.035522	RUL_Loss: 0.022696	mmd_Loss: 0.009619	l1_Loss: 0.004816
+Train source3 iter: 30 [(28%)]	Loss: 0.069921	RUL_Loss: 0.053400	mmd_Loss: 0.013727	l1_Loss: 0.004867
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.048027	RUL_Loss: 0.032537	mmd_Loss: 0.012041	l1_Loss: 0.004177
+Train source2 iter: 40 [(38%)]	Loss: 0.036575	RUL_Loss: 0.022677	mmd_Loss: 0.009557	l1_Loss: 0.004995
+Train source3 iter: 40 [(38%)]	Loss: 0.074123	RUL_Loss: 0.057446	mmd_Loss: 0.012299	l1_Loss: 0.005162
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.046267	RUL_Loss: 0.032747	mmd_Loss: 0.010061	l1_Loss: 0.003703
+Train source2 iter: 50 [(47%)]	Loss: 0.037580	RUL_Loss: 0.022910	mmd_Loss: 0.010208	l1_Loss: 0.004726
+Train source3 iter: 50 [(47%)]	Loss: 0.072594	RUL_Loss: 0.053340	mmd_Loss: 0.014713	l1_Loss: 0.004888
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.043691	RUL_Loss: 0.027225	mmd_Loss: 0.012710	l1_Loss: 0.003872
+Train source2 iter: 60 [(57%)]	Loss: 0.041135	RUL_Loss: 0.024067	mmd_Loss: 0.012069	l1_Loss: 0.005118
+Train source3 iter: 60 [(57%)]	Loss: 0.074388	RUL_Loss: 0.055304	mmd_Loss: 0.014680	l1_Loss: 0.004537
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.047106	RUL_Loss: 0.029561	mmd_Loss: 0.013744	l1_Loss: 0.003848
+Train source2 iter: 70 [(66%)]	Loss: 0.037702	RUL_Loss: 0.021953	mmd_Loss: 0.010863	l1_Loss: 0.004930
+Train source3 iter: 70 [(66%)]	Loss: 0.078322	RUL_Loss: 0.058160	mmd_Loss: 0.015347	l1_Loss: 0.004870
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.045808	RUL_Loss: 0.032400	mmd_Loss: 0.009247	l1_Loss: 0.004175
+Train source2 iter: 80 [(75%)]	Loss: 0.046417	RUL_Loss: 0.027164	mmd_Loss: 0.013999	l1_Loss: 0.005275
+Train source3 iter: 80 [(75%)]	Loss: 0.078251	RUL_Loss: 0.058148	mmd_Loss: 0.015196	l1_Loss: 0.004928
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.052790	RUL_Loss: 0.032706	mmd_Loss: 0.016238	l1_Loss: 0.003854
+Train source2 iter: 90 [(85%)]	Loss: 0.038160	RUL_Loss: 0.021828	mmd_Loss: 0.011389	l1_Loss: 0.004949
+Train source3 iter: 90 [(85%)]	Loss: 0.070981	RUL_Loss: 0.052368	mmd_Loss: 0.013861	l1_Loss: 0.004760
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.049980	RUL_Loss: 0.033523	mmd_Loss: 0.012345	l1_Loss: 0.004115
+Train source2 iter: 100 [(94%)]	Loss: 0.041194	RUL_Loss: 0.024397	mmd_Loss: 0.011667	l1_Loss: 0.005132
+Train source3 iter: 100 [(94%)]	Loss: 0.080506	RUL_Loss: 0.062142	mmd_Loss: 0.013633	l1_Loss: 0.004734
+
+
+Train epochs:25.000000	
+Train source1 iter: 10 [(9%)]	Loss: 0.036969	RUL_Loss: 0.031330	mmd_Loss: 0.009109	l1_Loss: 0.003718
+Train source2 iter: 10 [(9%)]	Loss: 0.030207	RUL_Loss: 0.023453	mmd_Loss: 0.010454	l1_Loss: 0.004909
+Train source3 iter: 10 [(9%)]	Loss: 0.071048	RUL_Loss: 0.059914	mmd_Loss: 0.019812	l1_Loss: 0.005518
+
+
+Train source1 iter: 20 [(19%)]	Loss: 0.041954	RUL_Loss: 0.032322	mmd_Loss: 0.009210	l1_Loss: 0.003862
+Train source2 iter: 20 [(19%)]	Loss: 0.033931	RUL_Loss: 0.021773	mmd_Loss: 0.011671	l1_Loss: 0.004830
+Train source3 iter: 20 [(19%)]	Loss: 0.072077	RUL_Loss: 0.057479	mmd_Loss: 0.014837	l1_Loss: 0.004977
+
+
+Train source1 iter: 30 [(28%)]	Loss: 0.044374	RUL_Loss: 0.031377	mmd_Loss: 0.010787	l1_Loss: 0.003840
+Train source2 iter: 30 [(28%)]	Loss: 0.034688	RUL_Loss: 0.019972	mmd_Loss: 0.012285	l1_Loss: 0.004276
+Train source3 iter: 30 [(28%)]	Loss: 0.076900	RUL_Loss: 0.056126	mmd_Loss: 0.018294	l1_Loss: 0.005084
+
+
+Train source1 iter: 40 [(38%)]	Loss: 0.041971	RUL_Loss: 0.029985	mmd_Loss: 0.008538	l1_Loss: 0.004011
+Train source2 iter: 40 [(38%)]	Loss: 0.040889	RUL_Loss: 0.026160	mmd_Loss: 0.010790	l1_Loss: 0.004631
+Train source3 iter: 40 [(38%)]	Loss: 0.076574	RUL_Loss: 0.057574	mmd_Loss: 0.014642	l1_Loss: 0.005252
+
+
+Train source1 iter: 50 [(47%)]	Loss: 0.046249	RUL_Loss: 0.033507	mmd_Loss: 0.009433	l1_Loss: 0.003539
+Train source2 iter: 50 [(47%)]	Loss: 0.036470	RUL_Loss: 0.021198	mmd_Loss: 0.011060	l1_Loss: 0.004488
+Train source3 iter: 50 [(47%)]	Loss: 0.077428	RUL_Loss: 0.056295	mmd_Loss: 0.016449	l1_Loss: 0.005066
+
+
+Train source1 iter: 60 [(57%)]	Loss: 0.043858	RUL_Loss: 0.029109	mmd_Loss: 0.011280	l1_Loss: 0.003573
+Train source2 iter: 60 [(57%)]	Loss: 0.034260	RUL_Loss: 0.021316	mmd_Loss: 0.008505	l1_Loss: 0.004530
+Train source3 iter: 60 [(57%)]	Loss: 0.074279	RUL_Loss: 0.054958	mmd_Loss: 0.014197	l1_Loss: 0.005259
+
+
+Train source1 iter: 70 [(66%)]	Loss: 0.042137	RUL_Loss: 0.026297	mmd_Loss: 0.011815	l1_Loss: 0.004068
+Train source2 iter: 70 [(66%)]	Loss: 0.040108	RUL_Loss: 0.026357	mmd_Loss: 0.009469	l1_Loss: 0.004320
+Train source3 iter: 70 [(66%)]	Loss: 0.081750	RUL_Loss: 0.057906	mmd_Loss: 0.018768	l1_Loss: 0.005141
+
+
+Train source1 iter: 80 [(75%)]	Loss: 0.047762	RUL_Loss: 0.034222	mmd_Loss: 0.009692	l1_Loss: 0.003862
+Train source2 iter: 80 [(75%)]	Loss: 0.037001	RUL_Loss: 0.023106	mmd_Loss: 0.009422	l1_Loss: 0.004488
+Train source3 iter: 80 [(75%)]	Loss: 0.077413	RUL_Loss: 0.056388	mmd_Loss: 0.016160	l1_Loss: 0.004887
+
+
+Train source1 iter: 90 [(85%)]	Loss: 0.044647	RUL_Loss: 0.031588	mmd_Loss: 0.009182	l1_Loss: 0.003882
+Train source2 iter: 90 [(85%)]	Loss: 0.035704	RUL_Loss: 0.021662	mmd_Loss: 0.009796	l1_Loss: 0.004252
+Train source3 iter: 90 [(85%)]	Loss: 0.082926	RUL_Loss: 0.060160	mmd_Loss: 0.018015	l1_Loss: 0.004760
+
+
+Train source1 iter: 100 [(94%)]	Loss: 0.044757	RUL_Loss: 0.031024	mmd_Loss: 0.010219	l1_Loss: 0.003516
+Train source2 iter: 100 [(94%)]	Loss: 0.036986	RUL_Loss: 0.022162	mmd_Loss: 0.010215	l1_Loss: 0.004611
+Train source3 iter: 100 [(94%)]	Loss: 0.079618	RUL_Loss: 0.059359	mmd_Loss: 0.015084	l1_Loss: 0.005178
+
+
+Train epochs:26.000000	

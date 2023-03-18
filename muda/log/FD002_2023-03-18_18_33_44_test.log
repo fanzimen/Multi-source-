@@ -1,0 +1,289 @@
+当前日期和时间： 2023-03-18_18_33_44
+training settings:	 lr: 0.001 momentum: 0.9 l2_decay: 0.001 optimizer: Adam seed: 6
+model architecture:
+ MFSAN(
+  (sharedNet): CFE(
+    (conv1): Conv1d(14, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bn1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (conv2): Conv1d(32, 64, kernel_size=(2,), stride=(1,), padding=(1,), bias=False)
+    (bn2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (conv3): Conv1d(64, 128, kernel_size=(2,), stride=(1,), bias=False)
+    (bn3): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): ReLU(inplace=True)
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (sonnet1): DFE(
+    (rnn): LSTM(128, 100, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
+  )
+  (sonnet2): DFE(
+    (rnn): LSTM(128, 100, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
+  )
+  (sonnet3): DFE(
+    (rnn): LSTM(128, 100, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
+  )
+  (rul_fc_son1): Linear(in_features=199, out_features=1, bias=True)
+  (rul_fc_son2): Linear(in_features=199, out_features=1, bias=True)
+  (rul_fc_son3): Linear(in_features=199, out_features=1, bias=True)
+  (avgpool): AvgPool1d(kernel_size=(2,), stride=(1,), padding=(0,))
+)
+FD001 FD003 FD004 to FD002
+multi_rmse: 1000.0000, multi_score: 0.0000
+source1 rmse 43.7885, source2 rmse 46.6077, source3 rmse 60.2248
+source1 score 69187.4657, source2 score 214772.7891, source3 score 111208.5892
+
+
+multi_rmse: 44.8761, multi_score: 26325.5839
+source1 rmse 43.9080, source2 rmse 45.6451, source3 rmse 50.9401
+source1 score 45768.0214, source2 score 118904.4557, source3 score 38258.9207
+
+
+multi_rmse: 44.6865, multi_score: 26948.3873
+source1 rmse 43.9859, source2 rmse 45.0093, source3 rmse 47.6541
+source1 score 61100.1763, source2 score 103048.0421, source3 score 25075.6269
+
+
+multi_rmse: 43.8375, multi_score: 30560.3122
+source1 rmse 45.1686, source2 rmse 46.0300, source3 rmse 44.9023
+source1 score 102343.4784, source2 score 250877.3746, source3 score 20449.7935
+
+
+multi_rmse: 43.8375, multi_score: 30560.3122
+source1 rmse 44.7254, source2 rmse 46.5918, source3 rmse 43.3934
+source1 score 80676.3500, source2 score 291193.1986, source3 score 16686.4607
+
+
+multi_rmse: 43.5018, multi_score: 45828.2028
+source1 rmse 44.8558, source2 rmse 46.0369, source3 rmse 43.8451
+source1 score 137536.8816, source2 score 196469.0403, source3 score 17487.6320
+
+
+multi_rmse: 43.4383, multi_score: 45895.1502
+source1 rmse 45.8233, source2 rmse 46.1489, source3 rmse 45.0031
+source1 score 97946.1822, source2 score 236086.8363, source3 score 20290.5209
+
+
+multi_rmse: 43.4383, multi_score: 45895.1502
+source1 rmse 45.5413, source2 rmse 44.7008, source3 rmse 45.2335
+source1 score 79583.4202, source2 score 122991.3901, source3 score 21550.3790
+
+
+multi_rmse: 42.9313, multi_score: 31293.7214
+source1 rmse 44.5269, source2 rmse 44.5332, source3 rmse 43.8628
+source1 score 76057.1472, source2 score 150358.9048, source3 score 18643.2775
+
+
+multi_rmse: 42.1054, multi_score: 30979.0735
+source1 rmse 45.2613, source2 rmse 44.3956, source3 rmse 43.5182
+source1 score 102766.7356, source2 score 169385.0623, source3 score 18488.0926
+
+
+multi_rmse: 42.1054, multi_score: 30979.0735
+source1 rmse 44.5411, source2 rmse 43.4878, source3 rmse 42.0950
+source1 score 79480.6358, source2 score 114273.2051, source3 score 15379.6486
+
+
+multi_rmse: 41.4711, multi_score: 28857.9803
+source1 rmse 44.3766, source2 rmse 42.8778, source3 rmse 41.3847
+source1 score 66951.7134, source2 score 108817.5830, source3 score 14134.6061
+
+
+multi_rmse: 40.9758, multi_score: 26165.8339
+source1 rmse 43.4485, source2 rmse 42.9764, source3 rmse 40.5354
+source1 score 63605.4789, source2 score 139001.6188, source3 score 13273.2831
+
+
+multi_rmse: 40.3120, multi_score: 25813.7216
+source1 rmse 43.1393, source2 rmse 42.6518, source3 rmse 40.5547
+source1 score 58571.8060, source2 score 109289.2255, source3 score 13078.0460
+
+
+multi_rmse: 40.1854, multi_score: 24034.3300
+source1 rmse 42.6905, source2 rmse 42.9932, source3 rmse 40.1094
+source1 score 48341.8350, source2 score 122860.5537, source3 score 12177.5410
+
+
+multi_rmse: 40.1086, multi_score: 22327.6874
+source1 rmse 42.4637, source2 rmse 42.0873, source3 rmse 41.0514
+source1 score 29344.5544, source2 score 70739.6568, source3 score 14369.1709
+
+
+multi_rmse: 40.1086, multi_score: 22327.6874
+source1 rmse 42.1200, source2 rmse 41.7954, source3 rmse 40.5441
+source1 score 27102.3145, source2 score 114601.7815, source3 score 12524.6879
+
+
+multi_rmse: 39.7958, multi_score: 18863.6137
+source1 rmse 40.6298, source2 rmse 41.0906, source3 rmse 39.9968
+source1 score 32798.4773, source2 score 128895.6240, source3 score 11805.5365
+
+
+multi_rmse: 38.9605, multi_score: 20206.8049
+source1 rmse 39.3784, source2 rmse 39.9972, source3 rmse 39.5713
+source1 score 42283.6269, source2 score 95729.5079, source3 score 11315.3305
+
+
+multi_rmse: 37.8426, multi_score: 19469.3219
+source1 rmse 39.6508, source2 rmse 40.7175, source3 rmse 39.5857
+source1 score 40770.8684, source2 score 89020.8475, source3 score 11491.0297
+
+
+multi_rmse: 37.8426, multi_score: 19469.3219
+source1 rmse 38.6282, source2 rmse 38.9934, source3 rmse 40.3171
+source1 score 23630.8865, source2 score 71034.7673, source3 score 12842.7022
+
+
+multi_rmse: 37.4947, multi_score: 15232.2876
+source1 rmse 37.7832, source2 rmse 38.4352, source3 rmse 39.6876
+source1 score 22621.0403, source2 score 48109.6586, source3 score 11405.2229
+
+
+multi_rmse: 37.0567, multi_score: 13077.9342
+source1 rmse 37.5479, source2 rmse 37.8458, source3 rmse 39.5286
+source1 score 19418.9041, source2 score 36506.9582, source3 score 11790.3891
+
+
+multi_rmse: 36.7412, multi_score: 12528.5245
+source1 rmse 36.5344, source2 rmse 37.0439, source3 rmse 40.1685
+source1 score 18817.2545, source2 score 38023.1924, source3 score 12149.1525
+
+
+multi_rmse: 36.3232, multi_score: 11993.2742
+source1 rmse 36.5138, source2 rmse 36.6971, source3 rmse 40.1050
+source1 score 15577.0362, source2 score 42059.7924, source3 score 12239.6940
+
+
+multi_rmse: 36.0933, multi_score: 12019.8243
+source1 rmse 36.8769, source2 rmse 37.2638, source3 rmse 40.2448
+source1 score 16968.0721, source2 score 40803.2527, source3 score 12600.4284
+
+
+multi_rmse: 36.0933, multi_score: 12019.8243
+source1 rmse 35.3295, source2 rmse 35.6357, source3 rmse 39.3885
+source1 score 15384.6157, source2 score 28481.8122, source3 score 11132.2789
+
+
+multi_rmse: 35.5321, multi_score: 11087.1881
+source1 rmse 36.5597, source2 rmse 36.6036, source3 rmse 39.5149
+source1 score 13627.1896, source2 score 28228.3099, source3 score 11272.5659
+
+
+multi_rmse: 35.5321, multi_score: 11087.1881
+source1 rmse 35.5080, source2 rmse 36.0770, source3 rmse 38.7958
+source1 score 13702.8431, source2 score 30714.7367, source3 score 10519.0036
+
+
+multi_rmse: 35.5179, multi_score: 10645.5605
+source1 rmse 35.0125, source2 rmse 35.5093, source3 rmse 39.3413
+source1 score 12091.9950, source2 score 21482.3770, source3 score 11000.1553
+
+
+multi_rmse: 35.3884, multi_score: 9466.2706
+source1 rmse 35.2567, source2 rmse 35.0599, source3 rmse 40.9721
+source1 score 11642.0714, source2 score 19787.1075, source3 score 14286.8328
+
+
+multi_rmse: 35.3884, multi_score: 9466.2706
+source1 rmse 33.8721, source2 rmse 34.6306, source3 rmse 39.1350
+source1 score 9627.0619, source2 score 17252.7879, source3 score 10738.9220
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 36.0882, source2 rmse 34.9568, source3 rmse 39.9342
+source1 score 17594.5226, source2 score 23010.3657, source3 score 12175.5477
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 34.7912, source2 rmse 34.4374, source3 rmse 39.9362
+source1 score 10542.3378, source2 score 18320.6659, source3 score 12194.1785
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 34.8689, source2 rmse 34.5034, source3 rmse 39.7367
+source1 score 13379.6558, source2 score 20017.7105, source3 score 11750.4523
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 34.5083, source2 rmse 34.4058, source3 rmse 39.5268
+source1 score 12833.7966, source2 score 20861.9245, source3 score 11965.4977
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 34.5197, source2 rmse 35.0273, source3 rmse 38.9778
+source1 score 12989.9583, source2 score 20682.3920, source3 score 10909.2180
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 34.5301, source2 rmse 34.5405, source3 rmse 38.8837
+source1 score 11251.9198, source2 score 22056.9139, source3 score 10226.2745
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 34.7464, source2 rmse 34.4330, source3 rmse 38.9695
+source1 score 11008.3081, source2 score 17104.5700, source3 score 10927.2292
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 34.1589, source2 rmse 35.1200, source3 rmse 38.1270
+source1 score 12451.2011, source2 score 23825.0030, source3 score 9763.9708
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 34.7519, source2 rmse 34.9270, source3 rmse 39.0448
+source1 score 10620.3841, source2 score 14809.4263, source3 score 11061.8065
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 34.9983, source2 rmse 34.6692, source3 rmse 39.1624
+source1 score 11347.9815, source2 score 23372.8300, source3 score 11156.7953
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 37.5284, source2 rmse 35.7732, source3 rmse 40.5237
+source1 score 11213.0077, source2 score 16113.8363, source3 score 13032.8803
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 36.6049, source2 rmse 34.6583, source3 rmse 39.8925
+source1 score 10000.0322, source2 score 14647.3901, source3 score 11695.2654
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 34.6527, source2 rmse 34.2733, source3 rmse 40.2468
+source1 score 10874.5923, source2 score 16064.9305, source3 score 12432.4482
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 34.5327, source2 rmse 33.8351, source3 rmse 38.7732
+source1 score 10081.7018, source2 score 12618.3303, source3 score 10303.6064
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 35.3085, source2 rmse 34.1843, source3 rmse 40.3458
+source1 score 10065.1358, source2 score 11382.6342, source3 score 12049.9109
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 34.5600, source2 rmse 34.2208, source3 rmse 40.0112
+source1 score 9237.6787, source2 score 11768.6465, source3 score 12637.5633
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 35.1178, source2 rmse 33.9533, source3 rmse 40.4828
+source1 score 10965.4495, source2 score 15087.7833, source3 score 13290.0326
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 34.5856, source2 rmse 34.2982, source3 rmse 41.1866
+source1 score 9953.8028, source2 score 12506.2002, source3 score 13887.1660
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 35.4236, source2 rmse 34.0984, source3 rmse 39.6604
+source1 score 10142.4370, source2 score 14292.1880, source3 score 11816.9207
+
+
+multi_rmse: 34.5960, multi_score: 8438.9752
+source1 rmse 35.3212, source2 rmse 33.9585, source3 rmse 40.7820
+source1 score 10215.8972, source2 score 13463.1089, source3 score 13141.5977
+
+

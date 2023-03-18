@@ -226,20 +226,21 @@ if __name__ == '__main__':
     opt.epochs = 500
     opt.seed = 6
     opt.cuda = True
+    opt.target_data_percentage = 0.2
     # opt.save_path = './outputs/model_files/muda.pkl'
     set_seed(opt.seed)
     # 读取源域训练数据
     target_train_loader = data_loader.load_training(opt.target_data_path, opt.sequence_length, opt.sensor_drop,
-                                                    opt.batch_size, suffle= True)
+                                                    opt.batch_size, percentage = opt.target_data_percentage,suffle= True)
     target_test_loader = data_loader.load_testing(opt.target_data_path, opt.sequence_length, opt.sensor_drop,
                                                   opt.batch_size, suffle= False)
 
     source1_loader = data_loader.load_training(opt.source_data_path1, opt.sequence_length, opt.sensor_drop,
-                                               opt.batch_size, opt.seed)
+                                               opt.batch_size)
     source2_loader = data_loader.load_training(opt.source_data_path2, opt.sequence_length, opt.sensor_drop,
-                                               opt.batch_size, opt.seed)
+                                               opt.batch_size,)
     source3_loader = data_loader.load_training(opt.source_data_path3, opt.sequence_length, opt.sensor_drop,
-                                               opt.batch_size, opt.seed)
+                                               opt.batch_size)
 
 
     source1_len = len(source1_loader)
@@ -295,9 +296,8 @@ if __name__ == '__main__':
     print("当前日期和时间：", now, file=overall_log, flush=True)
     print(opt.source_data_name1, opt.source_data_name2, opt.source_data_name3, "to", opt.target_data_name,
           file=overall_log, flush=True)
-    print('training settings:\t', 'lr:', opt.learning_rate, 'l2_decay:',opt.l2_decay, 'optimizer:', opt.optimizer, 'seed:', opt.seed,
+    print('training settings:\t', 'lr:', opt.learning_rate, 'l2_decay:',opt.l2_decay, 'optimizer:', opt.optimizer, 'seed:', opt.seed,'percentage:',opt.target_data_percentage,
           file=overall_log, flush=True)
-
     #训练
     for epoch in range(1,opt.epochs+1):
 

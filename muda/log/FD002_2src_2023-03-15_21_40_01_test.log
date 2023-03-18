@@ -1,0 +1,109 @@
+当前日期和时间： 2023-03-15_21_40_01
+training settings:	 lr: 0.001 momentum: 0.9 l2_decay: 0.001 optimizer: Adam seed: 42
+model architecture:
+ MFSAN(
+  (sharedNet): CFE(
+    (conv1): Conv1d(14, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bn1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (conv2): Conv1d(32, 64, kernel_size=(2,), stride=(1,), padding=(1,), bias=False)
+    (bn2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (conv3): Conv1d(64, 128, kernel_size=(2,), stride=(1,), bias=False)
+    (bn3): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): ReLU(inplace=True)
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (sonnet1): DFE(
+    (rnn): LSTM(128, 100, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
+  )
+  (sonnet2): DFE(
+    (rnn): LSTM(128, 100, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
+  )
+  (rul_fc_son1): Linear(in_features=199, out_features=1, bias=True)
+  (rul_fc_son2): Linear(in_features=199, out_features=1, bias=True)
+  (avgpool): AvgPool1d(kernel_size=(2,), stride=(1,), padding=(0,))
+)
+FD001 FD003 to FD002
+multi_rmse: 1000.0000, multi_score: 0.0000
+source1 rmse 43.2556, source2 rmse 44.4475
+source1 score 128448.3342, source2 score 94633.1056
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 43.9598, source2 rmse 45.7930
+source1 score 99775.2240, source2 score 82519.7575
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 44.2583, source2 rmse 46.5238
+source1 score 110614.0929, source2 score 146423.1759
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 47.4884, source2 rmse 49.3398
+source1 score 128227.5625, source2 score 215738.2364
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 48.6679, source2 rmse 49.9667
+source1 score 182428.4804, source2 score 369564.5625
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 51.3712, source2 rmse 51.5179
+source1 score 225195.1932, source2 score 288026.4807
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 50.8126, source2 rmse 51.1244
+source1 score 223134.7053, source2 score 398418.5807
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 51.9747, source2 rmse 53.5993
+source1 score 300514.5044, source2 score 649309.7166
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 51.3016, source2 rmse 52.4975
+source1 score 272231.2519, source2 score 306870.7792
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 51.6651, source2 rmse 52.1495
+source1 score 247826.2214, source2 score 252212.9891
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 52.4410, source2 rmse 53.5235
+source1 score 270591.8977, source2 score 404878.4089
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 52.1006, source2 rmse 52.4839
+source1 score 249019.3661, source2 score 251455.8680
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 53.9959, source2 rmse 54.5622
+source1 score 195456.2217, source2 score 396301.9273
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 53.0681, source2 rmse 53.6507
+source1 score 182365.2967, source2 score 307270.1953
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 54.4035, source2 rmse 54.1770
+source1 score 324006.7132, source2 score 282744.8450
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 53.6725, source2 rmse 54.0839
+source1 score 264709.5124, source2 score 309161.8745
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 52.7477, source2 rmse 53.7633
+source1 score 169838.7651, source2 score 280843.4861
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 53.8587, source2 rmse 54.3181
+source1 score 213819.8354, source2 score 334987.1617
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 53.4539, source2 rmse 53.8485
+source1 score 226531.5648, source2 score 345856.6557
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 53.0475, source2 rmse 53.4452
+source1 score 300745.4411, source2 score 264841.6707
+
+multi_rmse: 43.1195, multi_score: 95700.8627
+source1 rmse 51.9513, source2 rmse 53.0205
+source1 score 199576.3963, source2 score 340564.1219
+
