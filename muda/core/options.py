@@ -72,7 +72,7 @@ class Options():
         self.parser.add_argument('--source_data_name3', default=source3_name, help='源域数据集3的名称')
         self.parser.add_argument('--sequence_length', type=int, default=30, help='序列长度')
         self.parser.add_argument('--sensor_drop',default=sensor_drop, help='去除的数据列')
-        self.parser.add_argument('--l2_decay', type=float,default=1e-3, help='l2正则化')
+        self.parser.add_argument('--l2_decay', type=float,default=1e-2, help='l2正则化')
         self.parser.add_argument('--cuda', type=bool, default=True, help ='是否使用GPU')
         self.parser.add_argument('--momentum', type=float, default=0.9, help ='动量设置')
         self.parser.add_argument('--log_interval', type=int, default=10, help ='日志batch间隔')

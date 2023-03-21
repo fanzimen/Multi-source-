@@ -112,6 +112,11 @@ training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 6 percentage
 Test result:  best rmse: 25.273312 best rmse's score: 1210.172032
 best s1 mse: 29.235500 s1 score: 2618.893020 s2 mse: 22.728991 s2 score: 10271.891025 s3 mse: 40.884998 s3 score: 5532.220449 
 
+multi_rmse: 23.7726, multi_score: 1173.6355
+source1 rmse 21.1841, source2 rmse 22.5001, source3 rmse 40.2770
+source1 score 872.9597, source2 score 1176.9816, source3 score 4733.1943
+
+
 当前日期和时间： 2023-03-18_18_33_44
 FD001 FD003 FD004 to FD002
 training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 6 percentage: 0.8
@@ -136,4 +141,142 @@ training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 6 percentage
 Test result:  best rmse: 34.483299 best rmse's score: 7702.767726
 best s1 mse: 33.706074 s1 score: 8006.075052 s2 mse: 34.229408 s2 score: 15105.770885 s3 mse: 39.278351 s3 score: 10914.482211 
 
+当前日期和时间： 2023-03-19_22_19_50
+FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.001 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 25.471136 best rmse's score: 1121.658073
+best s1 mse: 26.513395 s1 score: 1409.378702 s2 mse: 26.470118 s2 score: 10581.988312 s3 mse: 39.933441 s3 score: 4518.104124 
+
+当前日期和时间： 2023-03-19_22_40_59
+FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 24.647984 best rmse's score: 1185.524692
+best s1 mse: 25.098135 s1 score: 1275.105477 s2 mse: 21.077890 s2 score: 1473.353675 s3 mse: 32.240078 s3 score: 2203.050825 
+
+当前日期和时间： 2023-03-20_00_11_32
+FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 39.560177 best rmse's score: 9448.939758
+best s1 mse: 39.484627 s1 score: 14115.816410 s2 mse: 41.198868 s2 score: 25248.850611 s3 mse: 42.357212 s3 score: 5688.600912 
+
+当前日期和时间： 2023-03-20_12_02_28
+FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 40.669872 best rmse's score: 5405.100435
+best s1 mse: 39.502296 s1 score: 12954.126136 s2 mse: 40.182697 s2 score: 19132.920427 s3 mse: 56.221653 s3 score: 23196.256257 
+
+当前日期和时间： 2023-03-20_12_44_14
+FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 40.469566 best rmse's score: 5495.357417
+best s1 mse: 39.430126 s1 score: 11718.358898 s2 mse: 40.875256 s2 score: 28040.870433 s3 mse: 56.584862 s3 score: 24073.117590 
+
+
+当前日期和时间： 2023-03-20_14_04_54
+FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 18.630335 best rmse's score: 715.397287
+best s1 mse: 19.543743 s1 score: 706.033109 s2 mse: 18.797661 s2 score: 776.434130 s3 mse: 18.440754 s3 score: 785.356915 
+
+当前日期和时间： 2023-03-20_16_13_35
+FD002 FD003 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6
+当前日期和时间： 2023-03-20_16_22_21
+FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 0.8
+Test result:  best rmse: 19.069199 best rmse's score: 784.583642
+best s1 mse: 20.054783 s1 score: 682.355159 s2 mse: 18.666439 s2 score: 819.274625 s3 mse: 19.482714 s3 score: 1070.491407 
+
+当前日期和时间： 2023-03-20_18_43_39
+FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 0.2
+Test result:  best rmse: 27.957390 best rmse's score: 1475.210743
+best s1 mse: 31.723280 s1 score: 2359.100137 s2 mse: 26.472900 s2 score: 1740.217035 s3 mse: 27.870073 s3 score: 1488.425136 
+
+当前日期和时间： 2023-03-20_18_59_48
+FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 0.6
+Test result:  best rmse: 27.307915 best rmse's score: 1386.489785
+best s1 mse: 30.165995 s1 score: 2015.059969 s2 mse: 26.097637 s2 score: 1782.094535 s3 mse: 27.780249 s3 score: 1470.141533 
+
+当前日期和时间： 2023-03-20_19_17_06
+FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 0.6
+Test result:  best rmse: 23.253044 best rmse's score: 1210.585070
+best s1 mse: 24.017431 s1 score: 1208.125383 s2 mse: 23.835726 s2 score: 1445.651832 s3 mse: 23.402327 s3 score: 1339.062298 
+
+当前日期和时间： 2023-03-20_20_10_10
+FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 0.4
+Test result:  best rmse: 21.473581 best rmse's score: 968.084822
+best s1 mse: 22.024775 s1 score: 998.489037 s2 mse: 21.941128 s2 score: 1178.892005 s3 mse: 22.637165 s3 score: 1063.355325 
+
+当前日期和时间： 2023-03-20_21_11_01
+FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 0.2
+Test result:  best rmse: 26.079887 best rmse's score: 1614.320374
+best s1 mse: 31.647842 s1 score: 2723.354798 s2 mse: 24.071417 s2 score: 1561.743707 s3 mse: 24.665888 s3 score: 1840.881945 
+
+当前日期和时间： 2023-03-20_21_38_14
+FD001 FD003 FD004 to FD002
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 0.2
+Test result:  best rmse: 35.156666 best rmse's score: 9053.276128
+best s1 mse: 35.917046 s1 score: 9184.008420 s2 mse: 35.073322 s2 score: 9527.481097 s3 mse: 35.003731 s3 score: 9894.845371 
+
+当前日期和时间： 2023-03-20_22_22_23
+FD001 FD003 FD004 to FD002
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 35.491322 best rmse's score: 11566.337474
+best s1 mse: 36.330910 s1 score: 11173.290582 s2 mse: 35.401066 s2 score: 12405.034856 s3 mse: 35.440903 s3 score: 13934.001732 
+
+当前日期和时间： 2023-03-21_10_55_40
+DFE_change_ FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 22.169451 best rmse's score: 4182.668702
+best s1 mse: 22.062212 s1 score: 4916.024635 s2 mse: 22.106043 s2 score: 4619.698705 s3 mse: 30.140444 s3 score: 5598.176404 
+
+当前日期和时间： 2023-03-21_12_12_43
+DFE_change_ FD001 FD003 FD004 to FD002
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 28.435699 best rmse's score: 14803.660819
+best s1 mse: 30.110035 s1 score: 13001.467529 s2 mse: 32.201954 s2 score: 59925.511308 s3 mse: 27.945963 s3 score: 12611.615863 
+
+当前日期和时间： 2023-03-21_12_51_05
+FD001 FD003 FD004 to FD002
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 34.672474 best rmse's score: 9406.774138
+best s1 mse: 35.993027 s1 score: 9991.055433 s2 mse: 34.922813 s2 score: 9843.758844 s3 mse: 33.918564 s3 score: 10999.387649 
+
+当前日期和时间： 2023-03-21_13_48_05
+DFE_change_ FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+当前日期和时间： 2023-03-21_14_14_22
+DFE_change_ FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 20.670097 best rmse's score: 2223.401953
+best s1 mse: 23.298363 s1 score: 2335.571277 s2 mse: 31.605005 s2 score: 27051.625100 s3 mse: 25.381777 s3 score: 1707.142789 
+
+当前日期和时间： 2023-03-21_14_38_30
+DFE_change_ FD001 FD002 FD004 to FD003
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 37.620327 best rmse's score: 36705.850925
+best s1 mse: 33.095303 s1 score: 5407.345998 s2 mse: 41.650188 s2 score: 101528.451038 s3 mse: 43.493610 s3 score: 147759.211286 
+
+当前日期和时间： 2023-03-21_15_26_02
+DFE_change_ FD001 FD002 FD003 to FD004
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 33.333649 best rmse's score: 22062.877359
+best s1 mse: 36.581696 s1 score: 17322.300114 s2 mse: 33.482323 s2 score: 36868.985550 s3 mse: 35.690086 s3 score: 46631.724678 
+
+当前日期和时间： 2023-03-21_16_16_19
+mmd+coral_ FD001 FD003 FD004 to FD002
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 34.881401 best rmse's score: 11274.769556
+best s1 mse: 35.907780 s1 score: 11194.250880 s2 mse: 35.027962 s2 score: 12325.456332 s3 mse: 34.474506 s3 score: 13284.183321 
+
+当前日期和时间： 2023-03-21_16_56_20
+mmd+coral_ FD002 FD003 FD004 to FD001
+training settings:	 lr: 0.001 l2_decay: 0.01 optimizer: Adam seed: 6 percentage: 1
+Test result:  best rmse: 22.365034 best rmse's score: 1625.627455
+best s1 mse: 22.600224 s1 score: 1405.689163 s2 mse: 23.442408 s2 score: 2029.181954 s3 mse: 22.449926 s3 score: 2026.313584 
 

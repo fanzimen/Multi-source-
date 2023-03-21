@@ -43,9 +43,10 @@ def train(model,max_len,source1_loader,source2_loader,source3_loader,target_trai
 
         {'params': model.rul_fc_son1.parameters(), 'lr': opt.learning_rate},
         {'params': model.rul_fc_son2.parameters(), 'lr': opt.learning_rate},
-
+        {'params': model.rul_fc_son3.parameters(), 'lr': opt.learning_rate},
         {'params': model.sonnet1.parameters(), 'lr': opt.learning_rate},
         {'params': model.sonnet2.parameters(), 'lr': opt.learning_rate},
+        {'params': model.sonnet3.parameters(), 'lr': opt.learning_rate},
         ], lr = opt.learning_rate, weight_decay = opt.l2_decay)
 
 
@@ -226,7 +227,7 @@ if __name__ == '__main__':
     opt.epochs = 500
     opt.seed = 6
     opt.cuda = True
-    opt.target_data_percentage = 0.2
+    opt.target_data_percentage = 1
     # opt.save_path = './outputs/model_files/muda.pkl'
     set_seed(opt.seed)
     # 读取源域训练数据
@@ -281,6 +282,9 @@ if __name__ == '__main__':
 
 
     now = time.strftime("%Y-%m-%d_%H_%M_%S", time.localtime())
+
+
+
     model = model_mfsan.MFSAN().apply(weight_init)
     print(model)
     if opt.cuda:

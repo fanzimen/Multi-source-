@@ -259,6 +259,7 @@ def log_in_file(file_name):
 def guassian_kernel(source, target, kernel_mul=2.0, kernel_num=5, fix_sigma=None):
     n_samples = int(source.size()[0])+int(target.size()[0])
     total = torch.cat([source, target], dim=0)
+
     total0 = total.unsqueeze(0).expand(int(total.size(0)), int(total.size(0)), int(total.size(1)))
     total1 = total.unsqueeze(1).expand(int(total.size(0)), int(total.size(0)), int(total.size(1)))
     L2_distance = ((total0-total1)**2).sum(2)

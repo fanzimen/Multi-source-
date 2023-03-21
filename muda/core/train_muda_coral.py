@@ -1,11 +1,11 @@
 from options import Options
 import data_loader
-from muda.model import model_mfsan2 as model_mfsan
+from muda.model import model_mfsan_coral as model_mfsan
 # from train_mfsan import train,test
 from muda.utils.utils import weight_init, log_in_file, save_model, set_seed
 import time
 from muda.utils.EarlyStopper import EarlyStopper
-from muda.utils.print_things import figure_generate_2src,writing_settings_2src
+from muda.utils.print_things import figure_generate_coral,writing_settings
 import pandas as pd
 import os
 import torch
@@ -17,17 +17,18 @@ import math
 
 pd.set_option('mode.chained_assignment', None)
 current_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
-def train(model,max_len,source1_loader,source2_loader,target_train_loader):
+def train(model,max_len,source1_loader,source2_loader,source3_loader,target_train_loader):
 # def train(model, target_train_loader):
     global mmd_loss1,mmd_loss2,mmd_loss3 #全局
     print("--------------------------MFSAN --------------------------------")
-
 
     batch_src1,batch_src2,batch_src3,batch_tar = 0,0,0,0
     running_loss_scr1, running_loss_scr2 ,running_loss_scr3= 0, 0, 0
     running_mmd_loss_scr1, running_mmd_loss_scr2, running_mmd_loss_scr3 = 0, 0, 0
     running_l1_loss_scr1, running_l1_loss_scr2, running_l1_loss_scr3 = 0, 0, 0
-    list_src1, list_src2, list_tar = list(enumerate(source1_loader)), list(enumerate(source2_loader)),list(enumerate(target_train_loader))
+    list_src1, list_src2, list_src3, list_tar = list(enumerate(source1_loader)), list(enumerate(source2_loader)), list(enumerate(source3_loader)),list(enumerate(target_train_loader))
+
+    # optimizer = torch.optim.SGD([
     #     {'params': model.sharedNet.parameters(), 'lr': lr[1]},
 
     #     {'params': model.rul_fc_son1.parameters(), 'lr': lr[1]},
@@ -42,9 +43,10 @@ def train(model,max_len,source1_loader,source2_loader,target_train_loader):
 
         {'params': model.rul_fc_son1.parameters(), 'lr': opt.learning_rate},
         {'params': model.rul_fc_son2.parameters(), 'lr': opt.learning_rate},
-
+        {'params': model.rul_fc_son3.parameters(), 'lr': opt.learning_rate},
         {'params': model.sonnet1.parameters(), 'lr': opt.learning_rate},
         {'params': model.sonnet2.parameters(), 'lr': opt.learning_rate},
+        {'params': model.sonnet3.parameters(), 'lr': opt.learning_rate},
         ], lr = opt.learning_rate, weight_decay = opt.l2_decay)
 
 
@@ -122,47 +124,81 @@ def train(model,max_len,source1_loader,source2_loader,target_train_loader):
                 'Train source2 iter: {} [({:.0f}%)]\tLoss: {:.6f}\tRUL_Loss: {:.6f}\tmmd_Loss: {:.6f}\tl1_Loss: {:.6f}'.format(
                     batch, 100. * batch / max_len, loss2.item(), rul_loss2.item(), mmd_loss2.item(), l1_loss2.item()), file=f_mfsan_train, flush=True)
 
+        #####scr3 tgt
+        _, (source_data3, source_label3) = list_src3[batch_src3]
+        _, (target_data3, _) = list_tar[batch_tar]
+
+        if opt.cuda:
+            source_data3, source_label3 = source_data3.cuda(), source_label3.type(torch.FloatTensor).cuda()
+            target_data3 = target_data3.cuda()
+        source_data3, source_label3 = Variable(source_data3), Variable(source_label3)
+        target_data3 = Variable(target_data3)
+        optimizer.zero_grad()
+
+        rul_loss3, mmd_loss3, l1_loss3 = model(source_data3, target_data3, source_label3, alpha, mark=3)
+        gamma = 2 / (1 + math.exp(-10 * (batch) / (max_len))) - 1
+        loss3 = rul_loss3 + gamma * (mmd_loss3 + l1_loss3)
+        loss3.backward()
+        optimizer.step()
+        running_loss_scr3 += loss3.item()
+        running_mmd_loss_scr3 += mmd_loss3.item()
+        running_l1_loss_scr3 += l1_loss3.item()
+        batch_src3 += 1
+        if batch_src3 >= len(list_src3) - 1:
+            batch_src3 = 0
+
+        batch_tar += 1
+        if batch_tar >= len(list_tar) - 1:
+            batch_tar = 0
+        # print("batch_src2,batch_tar", batch_src2, batch_tar)
+
+        if batch % opt.log_interval == 0:
+            print(
+                'Train source3 iter: {} [({:.0f}%)]\tLoss: {:.6f}\tRUL_Loss: {:.6f}\tmmd_Loss: {:.6f}\tl1_Loss: {:.6f}\n\n'.format(
+                    batch, 100. * batch / max_len, loss3.item(), rul_loss3.item(), mmd_loss3.item(), l1_loss3.item()),
+                file=f_mfsan_train, flush=True)
+
+    # f_mfsan_train.close()
     epoch_loss_scr1 = running_loss_scr1 / (max_len - 1)
     epoch_loss_scr2 = running_loss_scr2 / (max_len - 1)
-    # epoch_loss_scr3 = running_loss_scr3 / (max_len - 1)
+    epoch_loss_scr3 = running_loss_scr3 / (max_len - 1)
     epoch_mmd_loss_scr1 = running_mmd_loss_scr1 / (max_len - 1)
     epoch_mmd_loss_scr2 = running_mmd_loss_scr2 / (max_len - 1)
-    # epoch_mmd_loss_scr3 = running_mmd_loss_scr3 / (max_len - 1)
+    epoch_mmd_loss_scr3 = running_mmd_loss_scr3 / (max_len - 1)
     epoch_l1_loss_scr1 = running_l1_loss_scr1 / (max_len - 1)
     epoch_l1_loss_scr2 = running_l1_loss_scr2 / (max_len - 1)
-    # epoch_l1_loss_scr3 = running_l1_loss_scr3 / (max_len - 1)
+    epoch_l1_loss_scr3 = running_l1_loss_scr3 / (max_len - 1)
 
-    return epoch_loss_scr1, epoch_loss_scr2,epoch_mmd_loss_scr1, epoch_mmd_loss_scr2, epoch_l1_loss_scr1, epoch_l1_loss_scr2
+    return epoch_loss_scr1, epoch_loss_scr2, epoch_loss_scr3, epoch_mmd_loss_scr1, epoch_mmd_loss_scr2, epoch_mmd_loss_scr3, epoch_l1_loss_scr1, epoch_l1_loss_scr2, epoch_l1_loss_scr3
 
 
 def test(model,target_test_loader):
 
     model.eval()
 
-
     with torch.no_grad():
         for data, target in target_test_loader:
             if opt.cuda:
                 data, target = data.cuda(), target.type(torch.FloatTensor).cuda()
             data, target = Variable(data), Variable(target)
-            pred1, pred2 = model(data)
+            pred1, pred2, pred3 = model(data)
 
-            pred1, pred2 =pred1.detach().cpu().numpy().squeeze(1), pred2.detach().cpu().numpy().squeeze(1)
+            pred1, pred2, pred3 =pred1.detach().cpu().numpy().squeeze(1), pred2.detach().cpu().numpy().squeeze(1), pred3.detach().cpu().numpy().squeeze(1)
             target = target.detach().cpu().numpy()
 
             rmse1 = rmse_cal(pred1, target)  # sum up batch loss
             score1 = score_cal(pred1, target)
             rmse2 = rmse_cal(pred2, target) # sum up batch loss
             score2 = score_cal(pred2, target)
-            # rmse3 = rmse_cal(pred3, target)  # sum up batch loss
-            # score3 = score_cal(pred3, target)
+            rmse3 = rmse_cal(pred3, target)  # sum up batch loss
+            score3 = score_cal(pred3, target)
             # w1 = (mmd_loss1-0.5) ** (-2)
             # w2 = (mmd_loss2-0.5) ** (-2)
             # w3 = (mmd_loss3-0.5) ** (-2)
             # w1 = mmd_loss1 ** (-1)
             # w2 = mmd_loss2 ** (-1)
             # w3 = mmd_loss3 ** (-1)
-            #w1 = mmd_loss1
+            # #w1 = mmd_loss1
             #w2 = mmd_loss2
             #w3 = mmd_loss3
             # w1 = w1.cpu().numpy()
@@ -171,14 +207,15 @@ def test(model,target_test_loader):
             # ws=w1+w2+w3
 
             # pred = (w1*pred1 + w2*pred2 + w3*pred3) / ws
-            pred=(pred1+pred2)/2
+            pred=(pred1+pred2+pred3)/3
             rmse = rmse_cal(pred, target) # sum up batch loss
             score = score_cal(pred, target)
 
-       # print('source1 w {:.4f}, source2 w {:.4f}, source3 w {:.4f}\n\n'.format(w1,w2,w3))
-    return rmse, score,rmse1,score1,rmse2,score2,pred1, pred2, pred,target
 
-#path define
+
+        # print('source1 w {:.4f}, source2 w {:.4f}, source3 w {:.4f}\n\n'.format(w1,w2,w3))
+    return rmse, score,rmse1,score1,rmse2,score2,rmse3,score3,pred1, pred2, pred3, pred,target
+
 dataset_dir =  os.path.abspath(os.path.join(os.getcwd(), ".."))
 train_FD001_path = dataset_dir +'/data/cmapss/train_FD001.csv'
 test_FD001_path = dataset_dir +'/data/cmapss/test_FD001.csv'
@@ -212,48 +249,53 @@ target_path = ["none", FD_path[1], FD_path[2], FD_path[3], FD_path[4]]
 datasetset_name = ["none", "FD001", "FD002", "FD003", "FD004"]
 
 
-source_chosen = ['None',2,3]
+source_chosen = ['None',2,3,4]
 target_chosen = ['None',1]
 
 target_name = datasetset_name[target_chosen[1]]
 source1_name = datasetset_name[source_chosen[1]]
 source2_name = datasetset_name[source_chosen[2]]
+source3_name = datasetset_name[source_chosen[3]]
 
 if __name__ == '__main__':
     # 读取参数
     opt = Options().parse()
-    # opt.input_window = 15
+    opt.source_data_path1 = source_path[source_chosen[1]]
+    opt.source_data_path2 = source_path[source_chosen[2]]
+    opt.source_data_path3 = source_path[source_chosen[3]]
+    opt.target_data_path = target_path[target_chosen[1]]
+    opt.source_data_name1 = source1_name
+    opt.target_data_name = target_name
+    opt.source_data_name2 = source2_name
+    opt.source_data_name3 = source3_name
     opt.batch_size = 512
     opt.learning_rate = 0.001
     opt.epochs = 500
     opt.seed = 6
-    opt.source_data_path1 = source_path[source_chosen[1]]
-    opt.source_data_path2 = source_path[source_chosen[2]]
-    opt.target_data_path = target_path[target_chosen[1]]
-    opt.source_data_name1 = source1_name
-    opt.target_data_name = target_name
     opt.cuda = True
-    opt.source_data_name2 = source2_name
+    opt.target_data_percentage = 1
     # opt.save_path = './outputs/model_files/muda.pkl'
     set_seed(opt.seed)
     # 读取源域训练数据
     target_train_loader = data_loader.load_training(opt.target_data_path, opt.sequence_length, opt.sensor_drop,
-                                                    opt.batch_size, suffle= True)
+                                                    opt.batch_size, percentage = opt.target_data_percentage,suffle= True)
     target_test_loader = data_loader.load_testing(opt.target_data_path, opt.sequence_length, opt.sensor_drop,
                                                   opt.batch_size, suffle= False)
 
     source1_loader = data_loader.load_training(opt.source_data_path1, opt.sequence_length, opt.sensor_drop,
-                                               opt.batch_size, opt.seed)
+                                               opt.batch_size)
     source2_loader = data_loader.load_training(opt.source_data_path2, opt.sequence_length, opt.sensor_drop,
-                                               opt.batch_size, opt.seed)
-
+                                               opt.batch_size,)
+    source3_loader = data_loader.load_training(opt.source_data_path3, opt.sequence_length, opt.sensor_drop,
+                                               opt.batch_size)
 
 
     source1_len = len(source1_loader)
     source2_len = len(source2_loader)
+    source3_len = len(source3_loader)
     target_len = len(target_train_loader)
-    min_len = min(source1_len, source2_len,  target_len)
-    max_len = max(source1_len, source2_len,  target_len)
+    min_len = min(source1_len, source2_len, source3_len, target_len)
+    max_len = max(source1_len, source2_len, source3_len, target_len)
 
 
     early_stopper = EarlyStopper(patience=20, min_delta=0.01)
@@ -267,25 +309,28 @@ if __name__ == '__main__':
     history['total_l1_loss'] = []
     history['epoch_rul_loss_scr1'] = []
     history['epoch_rul_loss_scr2'] = []
-    # history['epoch_rul_loss_scr3'] = []
+    history['epoch_rul_loss_scr3'] = []
     history['epoch_mmd_loss_scr1'] = []
     history['epoch_mmd_loss_scr2'] = []
-    # history['epoch_mmd_loss_scr3'] = []
+    history['epoch_mmd_loss_scr3'] = []
     history['epoch_l1_loss_scr1'] = []
     history['epoch_l1_loss_scr2'] = []
-    # history['epoch_l1_loss_scr3'] = []
+    history['epoch_l1_loss_scr3'] = []
     history['test_rmse'] = []
     history['test_score'] = []
     history['s1_rmse'] = []
     history['s1_score'] = []
     history['s2_rmse'] = []
     history['s2_score'] = []
-    # history['s3_rmse'] = []
-    # history['s3_score'] = []
+    history['s3_rmse'] = []
+    history['s3_score'] = []
 
 
 
     now = time.strftime("%Y-%m-%d_%H_%M_%S", time.localtime())
+
+
+
     model = model_mfsan.MFSAN().apply(weight_init)
     print(model)
     if opt.cuda:
@@ -293,77 +338,77 @@ if __name__ == '__main__':
 
 
     #数据写入
-    f_mfsan_train = log_in_file('\\' +opt.target_data_name+ '_2src_' + now + '_train.log')
-    f_mfsan_test = log_in_file('\\' + opt.target_data_name+ '_2src_' + now + '_test.log')
+    f_mfsan_train = log_in_file('\\' +opt.target_data_name+ '_' + now + '_mmd+coral_train.log')
+    f_mfsan_test = log_in_file('\\' + opt.target_data_name+ '_' + now + '_mmd+coral_test.log')
     overall_log = log_in_file('\\' + 'overall_log.log')
-    writing_settings_2src(now, opt, model, f_mfsan_train=f_mfsan_train)
-    writing_settings_2src(now, opt, model, f_mfsan_train=f_mfsan_test)
+    writing_settings(now, opt, model, f_mfsan_train=f_mfsan_train)
+    writing_settings(now, opt, model, f_mfsan_train=f_mfsan_test)
     print("当前日期和时间：", now, file=overall_log, flush=True)
-    print(opt.source_data_name1, opt.source_data_name2, "to", opt.target_data_name,
+    print('mmd+coral_',opt.source_data_name1, opt.source_data_name2, opt.source_data_name3, "to", opt.target_data_name,
           file=overall_log, flush=True)
-    print('training settings:\t', 'lr:', opt.learning_rate, 'l2_decay:',opt.l2_decay, 'optimizer:', opt.optimizer, 'seed:', opt.seed,
+    print('training settings:\t', 'lr:', opt.learning_rate, 'l2_decay:',opt.l2_decay, 'optimizer:', opt.optimizer, 'seed:', opt.seed,'percentage:',opt.target_data_percentage,
           file=overall_log, flush=True)
-
     #训练
     for epoch in range(1,opt.epochs+1):
 
         ### train phase
 
-        epoch_loss_scr1, epoch_loss_scr2, epoch_mmd_loss_scr1, epoch_mmd_loss_scr2, epoch_l1_loss_scr1, epoch_l1_loss_scr2 = train(model,max_len,source1_loader,source2_loader,target_train_loader)
+        epoch_loss_scr1,epoch_loss_scr2,epoch_loss_scr3,epoch_mmd_loss_scr1,epoch_mmd_loss_scr2,epoch_mmd_loss_scr3,epoch_l1_loss_scr1,epoch_l1_loss_scr2,epoch_l1_loss_scr3 = train(model,max_len,source1_loader,source2_loader,source3_loader,target_train_loader)
+
         print('Train epochs:{:.6f}\t'.format(epoch), file=f_mfsan_train, flush=True)
-        print('Train result: Epoch: {}/{}\tepoch_loss_scr1: {:.4f}\tepoch_loss_scr2: {:.4f}'.format(epoch, opt.epochs, epoch_loss_scr1,epoch_loss_scr2))
+        print('Train result: Epoch: {}/{}\tepoch_loss_scr1: {:.4f}\tepoch_loss_scr2: {:.4f}\tepoch_loss_scr3: {:.4f}'.format(epoch, opt.epochs, epoch_loss_scr1,epoch_loss_scr2,epoch_loss_scr3))
         history['epoch'].append(epoch)
-        history['total_rul_loss'].append((epoch_loss_scr1+epoch_loss_scr2) / 2)
-        history['total_mmd_loss'].append((epoch_mmd_loss_scr1+epoch_mmd_loss_scr2) / 2)
-        history['total_l1_loss'].append((epoch_l1_loss_scr1+epoch_l1_loss_scr2) / 2)
+        history['total_rul_loss'].append((epoch_loss_scr1+epoch_loss_scr2+epoch_loss_scr3) / 3)
+        history['total_mmd_loss'].append((epoch_mmd_loss_scr1+epoch_mmd_loss_scr2+epoch_mmd_loss_scr3) / 3)
+        history['total_l1_loss'].append((epoch_l1_loss_scr1+epoch_l1_loss_scr2+epoch_l1_loss_scr3) / 3)
         history['epoch_rul_loss_scr1'].append(epoch_loss_scr1)
         history['epoch_rul_loss_scr2'].append(epoch_loss_scr2)
-        # history['epoch_rul_loss_scr3'].append(epoch_loss_scr3)
+        history['epoch_rul_loss_scr3'].append(epoch_loss_scr3)
         history['epoch_mmd_loss_scr1'].append(epoch_mmd_loss_scr1)
         history['epoch_mmd_loss_scr2'].append(epoch_mmd_loss_scr2)
-        # history['epoch_mmd_loss_scr3'].append(epoch_mmd_loss_scr3)
+        history['epoch_mmd_loss_scr3'].append(epoch_mmd_loss_scr3)
         history['epoch_l1_loss_scr1'].append(epoch_l1_loss_scr1)
         history['epoch_l1_loss_scr2'].append(epoch_l1_loss_scr2)
-        # history['epoch_l1_loss_scr3'].append(epoch_l1_loss_scr3)
-
+        history['epoch_l1_loss_scr3'].append(epoch_l1_loss_scr3)
 
         ### test phase
 
-        t_rmse, t_score, t_s1_rmse, t_s1_score, t_s2_rmse, t_s2_score, pred1, pred2, t_pred, t_target = test(model,target_test_loader)
+        t_rmse, t_score, t_s1_rmse, t_s1_score, t_s2_rmse, t_s2_score, t_s3_rmse, t_s3_score, pred1, pred2, pred3, t_pred, t_target = test(model,target_test_loader,)
 
         print('multi_rmse: {:.4f}, multi_score: {:.4f}'.format(rmse, score), file=f_mfsan_test, flush=True)
-        print('source1 rmse {:.4f}, source2 rmse {:.4f}'.format(t_s1_rmse, t_s2_rmse), file=f_mfsan_test, flush=True)
-        print('source1 score {:.4f}, source2 score {:.4f}\n'.format(t_s1_score, t_s2_score), file=f_mfsan_test, flush=True)
+        print('source1 rmse {:.4f}, source2 rmse {:.4f}, source3 rmse {:.4f}'.format(t_s1_rmse, t_s2_rmse, t_s3_rmse), file=f_mfsan_test, flush=True)
+        print('source1 score {:.4f}, source2 score {:.4f}, source3 score {:.4f}\n\n'.format(t_s1_score, t_s2_score,t_s3_score), file=f_mfsan_test, flush=True)
         history['test_rmse'].append(t_rmse)
         history['test_score'].append(t_score)
         history['s1_rmse'].append(t_s1_rmse)
         history['s1_score'].append(t_s1_score)
         history['s2_rmse'].append(t_s2_rmse)
         history['s2_score'].append(t_s2_score)
+        history['s3_rmse'].append(t_s3_rmse)
+        history['s3_score'].append(t_s3_score)
+
 
         if t_rmse < rmse:
             rmse = t_rmse
             score = t_score
             pred = t_pred
             target = t_target
-            s1_rmse, s1_score, s2_rmse, s2_score = t_s1_rmse, t_s1_score, t_s2_rmse, t_s2_score
-
-
+            s1_rmse, s1_score, s2_rmse, s2_score, s3_rmse, s3_score = t_s1_rmse, t_s1_score, t_s2_rmse, t_s2_score, t_s3_rmse, t_s3_score
 
             save_model(model, now + 'mfsan')
 
         print("Test result: ", "best rmse: %.6f best rmse's score: %.6f" % (rmse, score))
-        print("best s1 mse: %.6f s1 score: %.6f s2 mse: %.6f s2 score: %.6f " % (s1_rmse, s1_score,s2_rmse,s2_score), "\n")
+        print("best s1 mse: %.6f s1 score: %.6f s2 mse: %.6f s2 score: %.6f s3 mse: %.6f s3 score: %.6f" % (s1_rmse, s1_score,s2_rmse,s2_score, s3_rmse, s3_score), "\n")
 
         if early_stopper.early_stop(t_rmse):
             print('Early Stop！')
             break
 
     print("Test result: ", "best rmse: %.6f best rmse's score: %.6f" % (rmse, score), file=overall_log, flush=True)
-    print("best s1 mse: %.6f s1 score: %.6f s2 mse: %.6f s2 score: %.6f " % (s1_rmse, s1_score,s2_rmse,s2_score), "\n",
+    print("best s1 mse: %.6f s1 score: %.6f s2 mse: %.6f s2 score: %.6f s3 mse: %.6f s3 score: %.6f" % (s1_rmse, s1_score,s2_rmse,s2_score, s3_rmse, s3_score), "\n",
           file=overall_log, flush=True)
     overall_log.close()
     f_mfsan_train.close()
     f_mfsan_test.close()
 
-    figure_generate_2src(current_dir, history, now, opt.target_data_name, pred, target)
+    figure_generate_coral(current_dir, history, now, opt.target_data_name, pred, target)
